@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Leak Detection Hervey Bay &amp; Maryborough | OffTap Plumbing &amp; Gas</title>
+<meta name="description" content="Specialist leak detection across Hervey Bay, Maryborough and the Fraser Coast. Acoustic detection, nitrogen and tracer gas testing, thermal imaging and underground pipe locating.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="../assets/review.js"></script>
+<style>
+:root{
+  --paper:#f4f0e6; --paper-2:#ebe5d6; --card:#fbf9f3;
+  --ink:#0c2630; --ink-2:#3c5560; --ink-3:#7a8b90;
+  --blue:#00597e; --blue-2:#0077a6; --sky:#00bbf2;
+  --mark:#f47920; --line:#cfc6b2; --grid:rgba(0,89,126,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font:400 17px/1.65 Archivo,system-ui,sans-serif;
+  background:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Archivo;font-stretch:78%;font-weight:750;line-height:.98;letter-spacing:-.01em;margin:0;text-transform:uppercase}
+.mono{font-family:"JetBrains Mono",monospace}
+a{color:inherit}
+.wrap{max-width:1260px;margin:0 auto;padding:0 36px}
+.label{font:500 12px "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 15px Archivo;letter-spacing:.04em;text-transform:uppercase;padding:17px 24px;text-decoration:none;border:2px solid var(--ink);transition:all .15s;cursor:pointer;background:none;color:var(--ink)}
+.btn-mark{background:var(--mark);border-color:var(--mark);color:#fff;box-shadow:4px 4px 0 var(--ink)}
+.btn-mark:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:not(.btn-mark):hover{background:var(--ink);color:var(--paper)}
+
+/* header */
+.topbar{background:var(--ink);color:#cfe3ea;font:500 12px "JetBrains Mono";letter-spacing:.04em}
+.topbar .wrap{display:flex;justify-content:space-between;padding-top:9px;padding-bottom:9px}
+.topbar a{text-decoration:none;color:#fff}
+header{position:sticky;top:0;z-index:20;background:rgba(244,240,230,.94);backdrop-filter:blur(6px);border-bottom:2px solid var(--ink)}
+.nav{display:flex;align-items:center;gap:30px;height:74px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:56px}
+.brand b{font:800 22px Archivo;font-stretch:75%;letter-spacing:.02em;display:block;line-height:1}
+.brand small{font:500 11px "JetBrains Mono";color:var(--ink-2)}
+.nav nav{margin-left:auto;display:flex;gap:26px;font:600 14px Archivo;text-transform:uppercase;letter-spacing:.04em}
+.nav nav a{text-decoration:none}
+.nav nav a:hover{color:var(--blue)}
+
+/* hero */
+.hero{padding:70px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:start}
+.hero h1{font-size:clamp(52px,6vw,96px);margin:20px 0 28px}
+.hero h1 .u{position:relative;color:var(--blue);white-space:nowrap}
+.hero h1 .u svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.3em}
+.hero .lead{font-size:20px;color:var(--ink-2);max-width:620px;margin:0 0 34px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+.sheet{background:var(--card);border:2px solid var(--ink);box-shadow:10px 10px 0 var(--blue);padding:26px;position:relative;margin-top:30px}
+.sheet h2{font-size:30px;margin-bottom:16px}
+.sheet .row{display:grid;grid-template-columns:120px 1fr;border-top:1px dashed var(--line);padding:10px 0;font-size:15px}
+.sheet .row span:first-child{font:500 11px "JetBrains Mono";color:var(--ink-3);text-transform:uppercase;padding-top:4px}
+.sheet .stamp{position:absolute;right:-46px;top:-84px;width:150px;height:150px;border-radius:50%;background:var(--paper);border:2px dashed var(--mark);display:grid;place-items:center;transform:rotate(-10deg);box-shadow:0 6px 0 rgba(12,38,48,.08)}
+.sheet .stamp img{width:118px}
+.sheet .ok{color:var(--blue);font-weight:700}
+
+/* signs checklist */
+.signs{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--card);padding:80px 0}
+.signs-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+.signs h2{font-size:clamp(40px,4.4vw,64px);margin:14px 0 18px}
+.signs p{color:var(--ink-2)}
+.check{display:grid;gap:0;border-top:2px solid var(--ink)}
+.check label{display:grid;grid-template-columns:34px 1fr;gap:16px;align-items:center;padding:18px 4px;border-bottom:1px solid var(--line);cursor:pointer;font-size:18px}
+.check input{appearance:none;width:28px;height:28px;border:2px solid var(--ink);background:var(--paper);display:grid;place-items:center;margin:0;cursor:pointer}
+.check input:checked{background:var(--ink)}
+.check input:checked::after{content:"";width:12px;height:7px;border:3px solid var(--mark);border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-2px)}
+.check label:hover{background:var(--paper)}
+.verdict{margin-top:22px;padding:18px 20px;border:2px solid var(--ink);display:flex;justify-content:space-between;align-items:center;gap:20px;background:var(--paper);font-weight:600}
+.verdict.go{background:var(--ink);color:#fff}
+.verdict.go a{color:var(--mark)}
+.verdict a{font:700 14px Archivo;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+
+/* scrolly plan */
+.plan-sec{padding:110px 0 40px}
+.plan-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:40px}
+.plan-head h2{font-size:clamp(42px,4.8vw,72px);margin-top:14px}
+.plan-head p{color:var(--ink-2);margin:0}
+.scrolly{display:grid;grid-template-columns:1.1fr .9fr;gap:60px}
+.stage{position:sticky;top:110px;height:calc(100vh - 140px);max-height:640px;background:var(--card);border:2px solid var(--ink);padding:18px;display:flex;flex-direction:column}
+.stage .bar{display:flex;justify-content:space-between;font:500 11px "JetBrains Mono";color:var(--ink-3);text-transform:uppercase;padding-bottom:12px;border-bottom:1px dashed var(--line);margin-bottom:12px}
+.stage .bar b{color:var(--mark);font-weight:500}
+#plan{flex:1;width:100%;min-height:0}
+#plan .route{fill:none;stroke:var(--blue);stroke-width:4;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.6s ease}
+#plan .route-dash{fill:none;stroke:var(--paper);stroke-width:1.5;stroke-dasharray:6 8;opacity:0;transition:opacity .4s .9s}
+#plan .lp,#plan .zone,#plan .heat,#plan .xm,#plan .gauge{opacity:0;transition:opacity .5s,transform .5s}
+#plan .lp{transform-box:fill-box;transform-origin:center}
+[data-stage="1"] #plan .route,[data-stage="2"] #plan .route,[data-stage="3"] #plan .route,[data-stage="4"] #plan .route,[data-stage="5"] #plan .route{stroke-dashoffset:0}
+[data-stage="1"] #plan .route-dash,[data-stage="2"] #plan .route-dash,[data-stage="3"] #plan .route-dash,[data-stage="4"] #plan .route-dash,[data-stage="5"] #plan .route-dash{opacity:.9}
+[data-stage="2"] #plan .lp,[data-stage="3"] #plan .lp,[data-stage="4"] #plan .lp,[data-stage="5"] #plan .lp{opacity:1}
+[data-stage="2"] #plan .lp.hot{animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:scale(1.5)}}
+[data-stage="3"] #plan .gauge,[data-stage="4"] #plan .gauge,[data-stage="5"] #plan .gauge{opacity:1}
+[data-stage="4"] #plan .zone,[data-stage="5"] #plan .zone{opacity:1}
+[data-stage="4"] #plan .heat,[data-stage="5"] #plan .heat{opacity:.85}
+[data-stage="5"] #plan .xm{opacity:1}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font:500 11px "JetBrains Mono";color:var(--ink-2);padding-top:10px;border-top:1px dashed var(--line);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+.steps-col{padding:4vh 0 20vh}
+.st{min-height:62vh;padding:24px 0;opacity:.35;transition:opacity .4s}
+.st.on{opacity:1}
+.st .num{font:500 13px "JetBrains Mono";color:var(--mark)}
+.st h3{font-size:clamp(32px,3vw,44px);margin:10px 0 14px}
+.st p{color:var(--ink-2);margin:0 0 16px}
+.st details{border:2px solid var(--ink);background:var(--card);padding:14px 16px}
+.st summary{cursor:pointer;font:700 14px Archivo;text-transform:uppercase;letter-spacing:.04em}
+.st details p{margin:10px 0 0;font-size:15px}
+.st .caveat{font:400 13px "JetBrains Mono";color:var(--ink-3);border-left:3px solid var(--mark);padding-left:12px;margin-top:14px}
+
+/* audience */
+.aud{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink);background:var(--card);margin:60px 0 0}
+.aud > div{padding:48px}
+.aud > div + div{border-left:2px solid var(--ink)}
+.aud h3{font-size:44px;margin:12px 0 16px}
+.aud p{color:var(--ink-2)}
+.aud ul{padding:0;margin:20px 0 28px;list-style:none;columns:2;column-gap:20px;font-size:15px}
+.aud li{padding:6px 0;border-bottom:1px dashed var(--line);break-inside:avoid}
+.aud li::before{content:"— ";color:var(--mark)}
+
+/* process strip */
+.proc{padding:110px 0}
+.proc h2{font-size:clamp(42px,4.8vw,72px);margin:14px 0 50px}
+.proc-row{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink)}
+.proc-row div{padding:30px 26px;background:var(--card)}
+.proc-row div + div{border-left:2px solid var(--ink)}
+.proc-row b{font:800 64px Archivo;font-stretch:75%;color:var(--blue);display:block;line-height:1;margin-bottom:16px}
+.proc-row div:last-child b{color:var(--mark)}
+.proc-row h3{font-size:22px;margin-bottom:10px}
+.proc-row p{margin:0;color:var(--ink-2);font-size:15px}
+
+/* case placeholder */
+.case{border:2px dashed var(--mark);padding:34px;display:grid;grid-template-columns:200px 1fr 1fr;gap:34px;align-items:center;margin-top:40px;background:var(--card)}
+.case .ph{aspect-ratio:1;background:repeating-linear-gradient(45deg,var(--paper-2) 0 10px,var(--paper) 10px 20px);display:grid;place-items:center;font:500 11px "JetBrains Mono";color:var(--ink-3);text-align:center;padding:10px}
+.case h3{font-size:30px;margin:8px 0}
+.case p{color:var(--ink-2);margin:0}
+
+/* also */
+.also{background:var(--ink);color:#e8f0f2;padding:46px 0}
+.also .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.also h3{font-size:34px}
+.also p{margin:6px 0 0;color:#a9c0c8}
+.also .btn{border-color:#fff;color:#fff}
+.also .btn:hover{background:#fff;color:var(--ink)}
+
+/* contact */
+.contact{padding:110px 0}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px}
+.contact h2{font-size:clamp(46px,5.2vw,80px);margin:14px 0 20px}
+.contact p{color:var(--ink-2)}
+.map{margin-top:30px;border:2px solid var(--ink);background:var(--card);padding:10px}
+.map svg{width:100%;display:block}
+.jobsheet{background:var(--card);border:2px solid var(--ink);box-shadow:10px 10px 0 var(--mark)}
+.jobsheet .hd{display:flex;justify-content:space-between;padding:16px 22px;border-bottom:2px solid var(--ink);font:500 12px "JetBrains Mono";text-transform:uppercase}
+.jobsheet form{padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.jobsheet label{display:grid;gap:4px;padding:12px 10px;border-bottom:1px dashed var(--line);font:500 11px "JetBrains Mono";color:var(--ink-3);text-transform:uppercase}
+.jobsheet .full{grid-column:1/-1}
+.jobsheet input,.jobsheet textarea,.jobsheet select{font:500 17px Archivo;color:var(--ink);background:transparent;border:0;padding:4px 0;text-transform:none}
+.jobsheet input:focus,.jobsheet textarea:focus,.jobsheet select:focus{outline:none}
+.jobsheet label:focus-within{background:var(--paper)}
+.jobsheet textarea{min-height:80px;resize:vertical}
+.jobsheet .btn{grid-column:1/-1;justify-content:center;margin-top:20px}
+.direct{display:flex;gap:30px;margin-top:26px;font:600 20px Archivo}
+.direct a{text-decoration:none;border-bottom:2px solid var(--mark)}
+
+footer{border-top:2px solid var(--ink);padding:30px 0;font:500 12px "JetBrains Mono";color:var(--ink-2)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:980px){
+  .hero-grid,.signs-grid,.plan-head,.scrolly,.aud,.contact-grid,.case{grid-template-columns:1fr}
+  .stage{position:relative;top:0;height:420px}
+  .aud > div + div{border-left:0;border-top:2px solid var(--ink)}
+  .proc-row{grid-template-columns:1fr 1fr}
+  .nav nav{display:none}
+  .st{min-height:auto;opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span>Specialist leak detection · Hervey Bay · Maryborough · Fraser Coast</span><a href="tel:+61400152680">Call 0400 152 680</a></div></div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><img src="../assets/offtap-logo.svg" alt=""><span><b>OFFTAP</b><small>Plumbing &amp; Gas</small></span></a>
+    <nav aria-label="Primary"><a href="#signs">Signs</a><a href="#investigation">How we investigate</a><a href="#who">Homes &amp; commercial</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-mark" href="#contact" style="padding:12px 18px;box-shadow:3px 3px 0 var(--ink)">Enquire</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="label">Field notes · Leak detection specialists</span>
+      <h1 id="h1">We find the leak, then mark the <span class="u">spot.<svg viewBox="0 0 200 20" preserveAspectRatio="none"><path d="M3 14 C50 4 120 4 197 10" fill="none" stroke="#f47920" stroke-width="6" stroke-linecap="round"/></svg></span></h1>
+      <p class="lead">Hidden water leak? OffTap Plumbing &amp; Gas uses specialised investigation methods to help locate concealed and underground water leaks for homes, businesses and commercial sites across Hervey Bay, Maryborough and the Fraser Coast.</p>
+      <div class="ctas"><a class="btn btn-mark" href="#contact">Enquire about leak detection</a><a class="btn" href="tel:+61400152680">Call OffTap</a></div>
+    </div>
+    <aside class="sheet" aria-label="Example investigation summary">
+      <div class="stamp"><img src="../assets/offtap-logo.svg" alt="OffTap lion"></div>
+      <span class="label">Investigation summary · example</span>
+      <h2>Suspected leak,<br>front yard service</h2>
+      <div class="row"><span>Symptom</span><span>Water bill up 3×, meter moving with taps off</span></div>
+      <div class="row"><span>Methods</span><span>Pipe locating → acoustic → tracer gas</span></div>
+      <div class="row"><span>Finding</span><span class="ok">Likely location narrowed &amp; marked on site</span></div>
+      <div class="row"><span>Next step</span><span>Targeted repair, no full trench</span></div>
+    </aside>
+  </div>
+</section>
+
+<section class="signs" id="signs" aria-labelledby="s-h">
+  <div class="wrap signs-grid">
+    <div>
+      <span class="label">01 · Quick check</span>
+      <h2 id="s-h">Could you have a hidden leak?</h2>
+      <p>Tick anything you’ve noticed. One sign on its own can have other causes, but two or more is usually worth a quick call.</p>
+    </div>
+    <div>
+      <div class="check" id="check">
+        <label><input type="checkbox">Your water bill has jumped without a reason</label>
+        <label><input type="checkbox">The meter moves when every tap is off</label>
+        <label><input type="checkbox">A patch of lawn stays wet, soft or extra green</label>
+        <label><input type="checkbox">Damp floors, walls, ceilings or cracked tiles</label>
+        <label><input type="checkbox">You can hear water running when nothing is on</label>
+        <label><input type="checkbox">You know there’s a leak but can’t see where</label>
+      </div>
+      <div class="verdict" id="verdict" aria-live="polite"><span>Tick what applies.</span><a href="#contact">Enquire →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="plan-sec" id="investigation" aria-labelledby="i-h">
+  <div class="wrap">
+    <div class="plan-head">
+      <div><span class="label">02 · How we investigate</span><h2 id="i-h">One property. Five methods. One marked spot.</h2></div>
+      <p>Scroll through a typical residential investigation. Not every job needs every method; we choose what suits the pipework and site, and explain why.</p>
+    </div>
+    <div class="scrolly" id="scrolly" data-stage="0">
+      <div class="stage" aria-hidden="true">
+        <div class="bar"><span>Site plan · 14 Example St</span><b id="stage-name">Before investigation</b></div>
+        <svg id="plan" viewBox="0 0 520 440" preserveAspectRatio="xMidYMid meet">
+          <defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#cfc6b2" stroke-width="2"/></pattern>
+          <radialGradient id="hg"><stop offset="0" stop-color="#f47920" stop-opacity=".8"/><stop offset=".6" stop-color="#f47920" stop-opacity=".2"/><stop offset="1" stop-color="#f47920" stop-opacity="0"/></radialGradient></defs>
+          <!-- street -->
+          <rect x="0" y="390" width="520" height="50" fill="#e1dacb"/><text x="16" y="420" font-family="JetBrains Mono" font-size="11" fill="#7a8b90">EXAMPLE STREET</text>
+          <!-- lot -->
+          <rect x="20" y="20" width="480" height="360" fill="none" stroke="#0c2630" stroke-width="1.5" stroke-dasharray="10 6"/>
+          <!-- house -->
+          <rect x="230" y="60" width="220" height="170" fill="url(#hatch)" stroke="#0c2630" stroke-width="2.5"/>
+          <path d="M310 60v90h140M230 150h80" stroke="#0c2630" stroke-width="1.2" fill="none"/>
+          <text x="248" y="88" font-family="JetBrains Mono" font-size="10" fill="#3c5560">KITCHEN</text><text x="330" y="180" font-family="JetBrains Mono" font-size="10" fill="#3c5560">LIVING</text><text x="330" y="88" font-family="JetBrains Mono" font-size="10" fill="#3c5560">BATH</text>
+          <!-- driveway & garden -->
+          <rect x="60" y="230" width="90" height="160" fill="#e7e1d2" stroke="#3c5560" stroke-width="1"/><text x="72" y="320" font-family="JetBrains Mono" font-size="10" fill="#7a8b90" transform="rotate(-90 90 320)">DRIVEWAY</text>
+          <g fill="none" stroke="#7a8b90"><circle cx="90" cy="90" r="22"/><circle cx="130" cy="130" r="14"/><circle cx="470" cy="330" r="18"/></g>
+          <!-- meter -->
+          <rect x="190" y="372" width="22" height="14" fill="#fbf9f3" stroke="#0c2630" stroke-width="2"/><text x="166" y="368" font-family="JetBrains Mono" font-size="10" fill="#0c2630">METER</text>
+          <!-- route -->
+          <path class="route" d="M201 372 V300 Q201 290 211 290 H290 Q300 290 300 280 V200 H360"/>
+          <path class="route-dash" d="M201 372 V300 Q201 290 211 290 H290 Q300 290 300 280 V200 H360"/>
+          <!-- listening points -->
+          <g fill="#fbf9f3" stroke="#0077a6" stroke-width="2.5">
+            <circle class="lp" cx="201" cy="340" r="7"/><circle class="lp" cx="230" cy="290" r="7"/><circle class="lp hot" cx="268" cy="290" r="7" fill="#00bbf2"/><circle class="lp" cx="300" cy="250" r="7"/>
+          </g>
+          <!-- nitrogen gauge -->
+          <g class="gauge"><circle cx="201" cy="330" r="16" fill="#fbf9f3" stroke="#0c2630" stroke-width="2"/><path d="M201 330l8-8" stroke="#f47920" stroke-width="2.5"/><text x="224" y="334" font-family="JetBrains Mono" font-size="10" fill="#0c2630">N₂ TEST</text></g>
+          <!-- tracer zone -->
+          <circle class="zone" cx="268" cy="290" r="30" fill="rgba(0,187,242,.12)" stroke="#00bbf2" stroke-dasharray="4 4"/>
+          <!-- thermal heat -->
+          <ellipse class="heat" cx="300" cy="215" rx="34" ry="22" fill="url(#hg)"/>
+          <!-- mark -->
+          <g class="xm"><path d="M254 276l28 28M282 276l-28 28" stroke="#f47920" stroke-width="7" stroke-linecap="round"/><text x="290" y="326" font-family="JetBrains Mono" font-size="11" fill="#f47920" font-weight="500">SUSPECTED LEAK · MARKED</text></g>
+        </svg>
+        <div class="legend"><span><i style="background:#00597e"></i>Traced route</span><span><i style="background:#00bbf2;border-radius:50%"></i>Listening point</span><span><i style="background:#f47920"></i>Marked location</span></div>
+      </div>
+      <div class="steps-col">
+        <article class="st" data-step="1">
+          <span class="num">STEP 01 · PIPE &amp; SERVICE LOCATING</span>
+          <h3>First, find where the pipe actually runs.</h3>
+          <p>Electronic locating equipment can assist in tracing suitable underground services and identifying likely service routes.</p>
+          <details><summary>When is this used?</summary><p>When nobody is sure where the water service runs, and before any repair crew excavates or cuts concrete.</p></details>
+          <p class="caveat">Findings are indicative and should be verified before excavation.</p>
+        </article>
+        <article class="st" data-step="2">
+          <span class="num">STEP 02 · ACOUSTIC DETECTION</span>
+          <h3>Listen along the line.</h3>
+          <p>Specialist listening equipment can help identify sounds produced by escaping water in pressurised pipework, useful for underground and concealed leaks.</p>
+          <details><summary>When is this used?</summary><p>Pressurised lines under lawns, paths, driveways or inside walls. Often the first step in narrowing down the search area.</p></details>
+          <p class="caveat">Site noise, depth, pipe materials and ground conditions can affect results.</p>
+        </article>
+        <article class="st" data-step="3">
+          <span class="num">STEP 03 · NITROGEN PRESSURE TESTING</span>
+          <h3>Confirm what’s holding pressure.</h3>
+          <p>Nitrogen may be introduced as part of a controlled testing process to help assess pipework and assist with locating difficult leaks.</p>
+          <details><summary>When is this used?</summary><p>As an additional method when conventional detection is inconclusive, or to confirm which section of pipe is losing pressure.</p></details>
+        </article>
+        <article class="st" data-step="4">
+          <span class="num">STEP 04 · TRACER GAS &amp; THERMAL IMAGING</span>
+          <h3>Narrow it down further.</h3>
+          <p>A specialist tracer gas can be detected at the surface where conditions allow. A thermal camera shows temperature differences that may indicate moisture or a hidden hot water leak.</p>
+          <details><summary>When is this used?</summary><p>Quiet leaks, pipes under concrete or pavers, and warm or damp spots inside the home.</p></details>
+          <p class="caveat">Thermal imaging supports an investigation but does not on its own prove a leak’s exact location.</p>
+        </article>
+        <article class="st" data-step="5">
+          <span class="num">STEP 05 · FINDINGS</span>
+          <h3>Mark it, explain it, plan the repair.</h3>
+          <p>We explain what we found and, where possible, mark the suspected location or provide information to help the repair. That means less guesswork and less unnecessary digging.</p>
+          <a class="btn btn-mark" href="#contact">Start with a quick call</a>
+        </article>
+      </div>
+    </div>
+
+    <div class="aud" id="who">
+      <div>
+        <span class="label">For homeowners</span>
+        <h3>Before you dig up the yard.</h3>
+        <p>From unexplained water usage to damp patches and suspected underground pipe leaks, we investigate the cause and help you understand the next step before unnecessary excavation.</p>
+        <ul><li>High water bills</li><li>Wet lawn or garden</li><li>Damp floors &amp; walls</li><li>Under-slab leaks</li><li>Driveways &amp; paths</li><li>Pool &amp; garden lines</li></ul>
+        <a class="btn" href="#contact">Residential enquiry</a>
+      </div>
+      <div>
+        <span class="label">For commercial &amp; trade</span>
+        <h3>A specialist for the hard ones.</h3>
+        <p>We assist commercial plumbing contractors, builders and property maintenance teams with complex investigations, including buried pipework and leaks beneath concrete, with clear on-site marking.</p>
+        <ul><li>Plumbing contractors</li><li>Builders</li><li>Property managers</li><li>Strata &amp; body corp</li><li>Commercial sites</li><li>Written findings</li></ul>
+        <a class="btn" href="#contact">Commercial enquiry</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proc" aria-labelledby="p-h">
+  <div class="wrap">
+    <span class="label">03 · What to expect</span>
+    <h2 id="p-h">From first call to marked spot.</h2>
+    <div class="proc-row">
+      <div><b>01</b><h3>Tell us what you’re noticing</h3><p>A brief call or enquiry about the property, symptoms and access.</p></div>
+      <div><b>02</b><h3>Site assessment</h3><p>We review the information, site conditions and suitable testing options.</p></div>
+      <div><b>03</b><h3>Specialist investigation</h3><p>The right methods narrow down the suspected leak location.</p></div>
+      <div><b>04</b><h3>Findings &amp; next steps</h3><p>We explain the results and, where possible, mark the area.</p></div>
+    </div>
+    <div class="case" data-placeholder>
+      <div class="ph">JOB PHOTO<br>placeholder</div>
+      <div><span class="label" style="color:var(--mark)">Case study · placeholder</span><h3>Under-slab leak, Pialba</h3><p>Short story of a real job: what the customer noticed, the methods used and what was found.</p></div>
+      <div><p>“Customer quote placeholder: approved testimonial goes here.”</p><p class="mono" style="font-size:12px;margin-top:10px">— Name, suburb</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="also" aria-label="Plumbing and gas">
+  <div class="wrap">
+    <div><h3>Plumbing &amp; gas, too.</h3><p>General plumbing repairs, maintenance and licensed gas fitting. QBCC 15403045 · Gas licence L95159.</p></div>
+    <a class="btn" href="#contact">See plumbing &amp; gas services</a>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="c-h">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="label">04 · Book an investigation</span>
+      <h2 id="c-h">Tell us what you’ve noticed.</h2>
+      <p>Include your suburb, the issue and any recent water meter readings. Jaxon will call you back to talk it through.</p>
+      <div class="direct"><a href="tel:+61400152680">0400 152 680</a><a href="mailto:offtapplumbingandgas@hotmail.com">Email us</a></div>
+      <div class="map" aria-label="Service area: Hervey Bay, Maryborough and the Fraser Coast">
+        <svg viewBox="0 0 420 220">
+          <rect width="420" height="220" fill="#dbe9ee"/>
+          <path d="M0 220 V120 C40 110 60 90 90 92 C130 94 150 70 190 66 C230 62 250 40 300 44 C330 46 350 30 380 34 L420 30 V220Z" fill="#f4f0e6" stroke="#0c2630" stroke-width="1.5"/>
+          <path d="M330 0 C350 20 360 30 372 28 C390 26 400 10 405 0Z" fill="#f4f0e6" stroke="#0c2630" stroke-width="1.2"/>
+          <circle cx="205" cy="88" r="7" fill="#f47920"/><text x="218" y="84" font-family="Archivo" font-weight="700" font-size="14" fill="#0c2630">HERVEY BAY</text>
+          <circle cx="150" cy="170" r="7" fill="#00597e"/><text x="163" y="175" font-family="Archivo" font-weight="700" font-size="14" fill="#0c2630">MARYBOROUGH</text>
+          <circle cx="178" cy="128" r="90" fill="none" stroke="#00597e" stroke-dasharray="5 6"/>
+          <text x="16" y="208" font-family="JetBrains Mono" font-size="10" fill="#3c5560">FRASER COAST SERVICE AREA · ILLUSTRATIVE</text>
+          <text x="340" y="22" font-family="JetBrains Mono" font-size="9" fill="#3c5560">K’GARI</text>
+        </svg>
+      </div>
+    </div>
+    <div class="jobsheet">
+      <div class="hd"><span>Leak detection enquiry</span><span>No. ____</span></div>
+      <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Thanks, we’ll be in touch';">
+        <label>Name<input required></label>
+        <label>Phone<input type="tel" required></label>
+        <label>Suburb<input placeholder="e.g. Urangan"></label>
+        <label>Property<select><option>Home</option><option>Commercial / trade</option><option>Rental / strata</option></select></label>
+        <label class="full">Signs you’ve noticed<input id="signs-field" placeholder="Filled in from the quick check above, or type your own"></label>
+        <label class="full">Details<textarea placeholder="When it started, meter readings, where you’ve seen water…"></textarea></label>
+        <button class="btn btn-mark" type="submit">Send enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>OFFTAP PLUMBING &amp; GAS · SPECIALIST LEAK DETECTION · FRASER COAST</span><span>QBCC 15403045 · GAS L95159 · ABN 29 493 796 178</span></div></footer>
+
+<script>
+// quick check
+const boxes=[...document.querySelectorAll('#check input')],verdict=document.getElementById('verdict'),sf=document.getElementById('signs-field');
+boxes.forEach(b=>b.onchange=()=>{
+  const ticked=boxes.filter(x=>x.checked),n=ticked.length;
+  verdict.classList.toggle('go',n>=2);
+  verdict.firstElementChild.textContent=n===0?'Tick what applies.':n===1?'One sign. Could be worth a chat to rule things out.':n+' signs. A leak investigation is likely worth it.';
+  sf.value=ticked.map(x=>x.parentElement.textContent.trim()).join('; ');
+});
+// scrolly plan
+const scr=document.getElementById('scrolly'),steps=[...document.querySelectorAll('.st')],name=document.getElementById('stage-name');
+const names=['Before investigation','Route traced','Listening points','Pressure test','Narrowing down','Leak location marked'];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
+  const n=e.target.dataset.step;scr.dataset.stage=n;name.textContent=names[n];
+  steps.forEach(s=>s.classList.toggle('on',s===e.target));
+}}),{rootMargin:'-45% 0px -45% 0px'});
+steps.forEach(s=>io.observe(s));
+</script>
+</body>
+</html>

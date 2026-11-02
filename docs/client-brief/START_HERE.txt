@@ -1,0 +1,9 @@
+OFFTAP PLUMBING & GAS — WEBSITE HANDOVER FOR DARREN
+
+1. Open Website_Mockup/index.html in a web browser to view the previous interactive mockup. Navigate via its page links.
+2. Read OffTap_Website_Content_Design_Brief.docx for website goals, content, service descriptions and prototype page map.
+3. Darren_Original_Five_Page_Draft.docx is the original five-page proposal for comparison.
+
+DIRECTION: Make specialist leak detection the primary focus, with plumbing and gas fitting secondary. The prototype is a reference, not a live production-ready website. The final sitemap, SEO, mobile design and implementation are for Darren to refine.
+
+Before publication, verify business contact and licensing details, capabilities and service coverage. The prototype email links are mailto links, not a hosted contact form.

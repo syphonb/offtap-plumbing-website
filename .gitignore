@@ -1,0 +1,9 @@
+# macOS metadata
+.DS_Store
+__MACOSX/
+._*
+
+# Local Amp downloads, scratch files, and portal state
+.amp/in/
+.amp/out/
+.amp/portals/
