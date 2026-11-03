@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Leak Detection Hervey Bay &amp; Maryborough | OffTap Plumbing &amp; Gas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/hybrid.css">
+<script src="../assets/review.js"></script>
+<style>
+/* A's sticky technical header */
+header{position:sticky;top:0;z-index:20;background:rgba(12,21,28,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--grad);opacity:.6}
+.nav{display:flex;align-items:center;gap:28px;height:78px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:52px}
+.brand b{font-weight:800;font-size:19px;letter-spacing:-.02em;display:block;line-height:1}
+.brand small{font:500 10px "JetBrains Mono";letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.nav nav{display:flex;gap:26px;margin-left:auto;font-size:15px;color:var(--muted)}
+.nav nav a:hover{color:#fff}
+.call{font:700 15px "JetBrains Mono";padding:11px 16px;border-radius:12px;background:var(--grad);color:#08131a}
+
+/* hero: headline row then a full-width control panel */
+.hero{position:relative;padding:80px 0 100px;isolation:isolate;overflow:hidden}
+.hero .aurora{left:-30%;opacity:.55}
+.top{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
+.top h1{font-size:clamp(52px,6vw,100px)}
+.top p{color:#c3cfd5;font-size:19px;margin:0 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.panel{display:grid;grid-template-columns:250px 1fr 300px;border-radius:30px;overflow:hidden}
+.panel>div{padding:24px}
+.col-l{border-right:1px solid var(--line)}
+.col-r{border-left:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.lab{color:var(--muted);margin-bottom:16px;display:flex;justify-content:space-between}
+.lab b{color:var(--orange)}
+.col-l .symptoms{flex-direction:column}
+.col-l .symptoms button{text-align:left;border-radius:14px;padding:14px 16px;font-size:15px;display:flex;gap:12px;align-items:center}
+.col-l .symptoms button::before{content:attr(data-n);font:500 11px "JetBrains Mono";opacity:.6}
+.col-m{background:radial-gradient(70% 70% at 60% 60%,rgba(0,169,237,.12),transparent)}
+.col-m .scene{border-radius:16px}
+.col-r .gauge-dial .v{font-size:46px}
+.col-r .g-status button{display:none}
+.read h4{font-size:19px;letter-spacing:-.02em;line-height:1.2;margin-bottom:6px}
+.read p{margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.5}
+.creds{display:flex;gap:28px;margin-top:22px;color:var(--dim)}
+.creds b{color:var(--muted)}
+
+section{padding:120px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:56px}
+.sec-head .mono{color:var(--blue)}
+.sec-head h2{font-size:clamp(40px,4.4vw,70px);margin-top:16px}
+.sec-head p{color:var(--muted);margin:0;max-width:520px}
+
+/* A's signs grid */
+.signs{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sign-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.sign{background:var(--bg);padding:32px 28px 36px;position:relative}
+.sign .mono{display:inline-block;margin-bottom:40px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:28px;font-weight:700;letter-spacing:-.02em}
+.sign h3{font-size:22px;letter-spacing:-.03em;margin-bottom:8px}
+.sign p{margin:0;font-size:15px;color:var(--muted)}
+
+/* A's method tabs, Pressure finish */
+.methods-ui{display:grid;grid-template-columns:320px 1fr;gap:28px}
+.m-tabs{display:flex;flex-direction:column;gap:6px}
+.m-tab{all:unset;cursor:pointer;display:grid;grid-template-columns:40px 1fr;align-items:center;padding:18px 20px;border-radius:16px;border:1px solid transparent;color:var(--muted);transition:all .2s}
+.m-tab small{font:500 12px "JetBrains Mono"}
+.m-tab b{font-weight:700;font-size:18px;letter-spacing:-.02em}
+.m-tab:hover{color:#fff;background:rgba(255,255,255,.03)}
+.m-tab[aria-selected=true]{color:#fff;background:linear-gradient(var(--panel),var(--panel)) padding-box,var(--grad) border-box}
+.m-tab[aria-selected=true] small{color:var(--orange)}
+.m-tab:focus-visible{outline:2px solid var(--blue)}
+.m-panel{grid-template-columns:1fr 1fr;border-radius:26px;overflow:hidden;background:var(--panel);border:1px solid var(--line)}
+.m-art{position:relative;min-height:360px;display:grid;place-items:center;overflow:hidden;border-right:1px solid var(--line)}
+.m-art::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 30% 70%,rgba(0,169,237,.55),transparent 70%),radial-gradient(50% 50% at 80% 20%,rgba(242,142,82,.45),transparent 70%);filter:blur(10px)}
+.m-art span{position:relative;font:800 160px/1 "Bricolage Grotesque";letter-spacing:-.06em;color:rgba(255,255,255,.92)}
+.m-copy{padding:40px}
+.m-copy .mono{color:var(--orange)}
+.m-copy h3{font-size:36px;margin:12px 0 14px}
+.m-copy p{color:var(--muted);margin:0 0 18px}
+.m-copy ul{margin:0;padding-left:18px;color:#c3cfd5;font-size:16px}
+.m-copy .note{font-size:14px;color:var(--dim);margin-top:20px;border-left:2px solid var(--orange);padding-left:12px}
+
+
+/* audience */
+.aud{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.aud article{border-radius:26px;padding:44px;background:var(--panel);border:1px solid var(--line);position:relative;overflow:hidden}
+.aud article::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(0,169,237,.4),transparent 70%)}
+.aud article.com::after{background:radial-gradient(circle,rgba(242,142,82,.4),transparent 70%)}
+.aud .mono{color:var(--blue)}
+.aud .com .mono{color:var(--orange)}
+.aud h3{font-size:38px;margin:14px 0}
+.aud p{color:var(--muted)}
+.aud ul{list-style:none;padding:0;margin:20px 0 26px;display:grid;gap:8px;font-size:16px}
+.aud li::before{content:"✓ ";color:var(--blue)}
+.aud .com li::before{color:var(--orange)}
+.aud a{font-weight:700}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{border-radius:22px;padding:28px;background:var(--panel);border:1px solid var(--line)}
+.step .mono{color:var(--blue)}
+.step h3{font-size:23px;letter-spacing:-.03em;margin:40px 0 8px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.step:last-child{background:var(--grad);color:#08131a;border:0}
+.step:last-child .mono,.step:last-child p{color:#08131a}
+
+.also{display:flex;justify-content:space-between;align-items:center;gap:30px;padding:36px 40px;border-radius:24px;background:linear-gradient(var(--bg),var(--bg)) padding-box,var(--grad) border-box;border:1px solid transparent}
+.also h3{font-size:28px}
+.also p{margin:6px 0 0;color:var(--muted)}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.contact h2{font-size:clamp(48px,5.6vw,90px)}
+.num{display:block;font:700 clamp(32px,3.4vw,50px) "JetBrains Mono";letter-spacing:-.03em;margin:26px 0 6px}
+.form{padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form label{display:grid;gap:6px;font:500 11px "JetBrains Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.form .full{grid-column:1/-1}
+.form input,.form select,.form textarea{font:16px "Bricolage Grotesque";color:#fff;background:rgba(0,0,0,.3);border:1px solid var(--line2);border-radius:12px;padding:13px 14px}
+.form .btn{grid-column:1/-1;justify-content:center}
+footer{border-top:1px solid var(--line);padding:26px 40px;display:flex;justify-content:space-between;color:var(--muted);font-size:14px;flex-wrap:wrap;gap:10px}
+@media(max-width:1100px){.panel{grid-template-columns:1fr}.col-l,.col-r{border:0}.col-l .symptoms{flex-direction:row}.top,.sec-head,.methods-ui,.m-panel,.aud,.contact{grid-template-columns:1fr}.sign-grid,.steps{grid-template-columns:1fr 1fr}.nav nav{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#"><img src="../assets/offtap-logo.svg" alt=""><span><b>OffTap</b><small>Plumbing &amp; Gas</small></span></a>
+  <nav aria-label="Primary"><a href="#methods">Leak detection</a><a href="#who">Homes &amp; commercial</a><a href="#process">Our process</a><a href="#also">Plumbing &amp; gas</a><a href="#contact">Contact</a></nav>
+  <a class="call" href="tel:+61400152680">0400 152 680</a>
+</div></header>
+
+<main>
+<section class="hero">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <div class="top">
+      <div><div class="mono" style="color:var(--orange);margin-bottom:24px">Specialist leak detection · Hervey Bay · Maryborough · Fraser Coast</div>
+      <h1>See what's happening <span class="g">under the surface.</span></h1></div>
+      <div><p>Choose what you're noticing. We'll show you where the leak is likely to be, and which methods we'd use to find it.</p>
+      <div class="btns"><a class="btn pri" href="#contact">Enquire about leak detection →</a><a class="btn sec" href="tel:+61400152680">Call</a></div></div>
+    </div>
+    <div class="glass panel" aria-label="Interactive leak diagnosis">
+      <div class="col-l">
+        <div class="lab mono"><span>01 · Symptom</span></div>
+        <div class="symptoms" role="group" aria-label="Signs">
+          <button data-s="bill" data-n="A">Water bill jumped</button><button data-s="yard" data-n="B">Wet patch in the yard</button><button data-s="floor" data-n="C">Damp or warm floor</button><button data-s="wall" data-n="D">Damp wall or ceiling</button>
+        </div>
+      </div>
+      <div class="col-m"><div class="lab mono"><span>02 · Likely location</span><span>Tap a point</span></div><div data-scene></div></div>
+      <div class="col-r">
+        <div class="lab mono" style="margin:0"><span>03 · Pressure test</span><b data-clock>00:00</b></div>
+        <div data-gauge></div>
+        <div class="read" aria-live="polite"><h4 id="r-title"></h4><p id="r-text"></p><div class="tags" id="r-tags"></div></div>
+      </div>
+    </div>
+    <div class="creds mono"><span><b>QBCC</b> 15403045</span><span><b>Gas licence</b> L95159</span><span><b>Local</b> &amp; family-owned</span></div>
+  </div>
+</section>
+
+<section class="signs">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="mono">Signs of a hidden leak</span><h2>Most leaks don't announce themselves.</h2></div><p>If any of these sound familiar, it's worth a conversation before anyone starts digging. A short call is usually enough to tell whether an investigation makes sense.</p></div>
+    <div class="sign-grid">
+      <div class="sign"><span class="mono">$↑</span><h3>Unexpected water bills</h3><p>Usage has climbed but nothing about how you use water has changed.</p></div>
+      <div class="sign"><span class="mono">↻</span><h3>Meter moving, taps off</h3><p>Everything is turned off, yet the meter keeps ticking over.</p></div>
+      <div class="sign"><span class="mono">≈</span><h3>Wet patches</h3><p>Soft, green or soggy spots in the yard that never dry out.</p></div>
+      <div class="sign"><span class="mono">?</span><h3>A leak you can't pinpoint</h3><p>Damp walls, floors or concrete with no obvious source.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="methods">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="mono">How we investigate</span><h2>The right method depends on the pipe, the ground and <span class="g">the leak.</span></h2></div><p>We don't rely on a single tool. Each investigation combines methods chosen for your pipework and site conditions.</p></div>
+    <div class="methods-ui">
+      <div class="m-tabs" role="tablist" aria-label="Detection methods">
+        <button class="m-tab" role="tab" aria-selected="true" aria-controls="mp-1"><small>01</small><b>Acoustic detection</b></button>
+        <button class="m-tab" role="tab" aria-selected="false" aria-controls="mp-2"><small>02</small><b>Nitrogen pressure testing</b></button>
+        <button class="m-tab" role="tab" aria-selected="false" aria-controls="mp-3"><small>03</small><b>Tracer gas detection</b></button>
+        <button class="m-tab" role="tab" aria-selected="false" aria-controls="mp-4"><small>04</small><b>Thermal imaging</b></button>
+        <button class="m-tab" role="tab" aria-selected="false" aria-controls="mp-5"><small>05</small><b>Pipe &amp; service locating</b></button>
+      </div>
+      <div>
+        <div class="m-panel on" role="tabpanel" id="mp-1"><div class="m-art"><span>01</span></div><div class="m-copy"><span class="mono">Method 01</span><h3>Acoustic leak detection</h3><p>Specialist listening equipment helps identify sounds produced by escaping water in pressurised pipework.</p><ul><li>Water lines under lawns, paths or driveways</li><li>Concealed pipework in walls or under floors</li><li>Often a first step to narrow the search</li></ul><p class="note">Site noise, depth, pipe materials and ground conditions can affect results.</p></div></div>
+        <div class="m-panel" role="tabpanel" id="mp-2"><div class="m-art"><span>02</span></div><div class="m-copy"><span class="mono">Method 02</span><h3>Nitrogen pressure testing</h3><p>Nitrogen may be introduced in a controlled test to assess pipework and help locate difficult leaks.</p><ul><li>When conventional detection is inconclusive</li><li>Confirming whether a section holds pressure</li><li>Making a quiet leak easier to hear</li></ul><p class="note">Suitability depends on the pipework and the ability to isolate sections safely.</p></div></div>
+        <div class="m-panel" role="tabpanel" id="mp-3"><div class="m-art"><span>03</span></div><div class="m-copy"><span class="mono">Method 03</span><h3>Tracer gas detection</h3><p>A specialist tracer gas is introduced into suitable pipework and detected with dedicated sensing equipment.</p><ul><li>Small leaks too quiet to hear</li><li>Pipes under concrete, pavers or long runs of lawn</li><li>Where the gas can reach the surface</li></ul><p class="note">Ground cover and soil type affect how the gas travels.</p></div></div>
+        <div class="m-panel" role="tabpanel" id="mp-4"><div class="m-art"><span>04</span></div><div class="m-copy"><span class="mono">Method 04</span><h3>Thermal imaging</h3><p>A thermal camera detects surface temperature differences that may indicate moisture or a hidden plumbing issue.</p><ul><li>Warm spots in floors, damp patches on walls</li><li>Hot water lines inside slabs or walls</li><li>Supporting findings from other methods</li></ul><p class="note">Thermal imaging supports an investigation but doesn't prove a leak on its own.</p></div></div>
+        <div class="m-panel" role="tabpanel" id="mp-5"><div class="m-art"><span>05</span></div><div class="m-copy"><span class="mono">Method 05</span><h3>Underground pipe &amp; service locating</h3><p>Electronic locating equipment traces suitable underground services and likely service routes.</p><ul><li>When nobody knows where the service runs</li><li>Before excavation or concrete cutting</li><li>Mapping larger residential and commercial sites</li></ul><p class="note">Findings are indicative and should be verified before excavation.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="who" style="padding-top:0">
+  <div class="wrap aud">
+    <article><span class="mono">For homeowners</span><h3>Find the leak before anyone starts digging.</h3><p>From unexplained water usage to damp patches and underground pipe leaks, we investigate the cause and explain the next step.</p><ul><li>High bills and a meter that won't stop</li><li>Wet patches in the lawn or garden</li><li>Damp floors, walls or ceilings</li><li>Leaks under slabs, driveways and paths</li></ul><a href="#contact">Book a residential investigation →</a></article>
+    <article class="com"><span class="mono">For commercial &amp; trade</span><h3>Clear findings your repair team can work from.</h3><p>We assist plumbing contractors, builders and property managers with complex investigations, including leaks beneath concrete.</p><ul><li>Plumbing contractors needing a specialist</li><li>Builders and developers</li><li>Property and strata managers</li><li>On-site marking and written findings</li></ul><a href="#contact">Discuss a commercial job →</a></article>
+  </div>
+</section>
+
+<section id="process" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="mono">Our process</span><h2>Four steps to a clear answer.</h2></div><p>You'll know what we're doing, why we're doing it and what we found, without the jargon.</p></div>
+    <div class="steps">
+      <div class="step"><span class="mono">Step 01</span><h3>Tell us what you're noticing</h3><p>A short call about the property, the symptoms and access.</p></div>
+      <div class="step"><span class="mono">Step 02</span><h3>Site assessment</h3><p>We review site conditions and the testing options that suit.</p></div>
+      <div class="step"><span class="mono">Step 03</span><h3>Specialist investigation</h3><p>The right methods narrow down the suspected leak location.</p></div>
+      <div class="step"><span class="mono">Step 04</span><h3>Findings &amp; next steps</h3><p>We explain the results and, where possible, mark the area for repair.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="also" style="padding-top:0">
+  <div class="wrap"><div class="also"><div><h3>Also licensed for general plumbing and gas fitting.</h3><p>Repairs, maintenance and gas work across the Fraser Coast. QBCC 15403045 · Gas licence L95159.</p></div><a class="btn sec" href="#contact">Plumbing &amp; gas services</a></div></div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="wrap contact">
+    <div><span class="mono" style="color:var(--blue)">Get in touch</span><h2 style="margin-top:16px">Tell us what you're <span class="g">noticing.</span></h2><a class="num" href="tel:+61400152680">0400 152 680</a><p style="margin:0;color:var(--muted)">offtapplumbingandgas@hotmail.com</p></div>
+    <form class="glass form" onsubmit="return false">
+      <label>Name<input></label><label>Phone<input></label>
+      <label>Suburb<input placeholder="e.g. Pialba"></label><label>Property<select><option>Home</option><option>Commercial</option></select></label>
+      <label class="full">What are you noticing?<textarea rows="3"></textarea></label>
+      <button class="btn pri">Send leak detection enquiry →</button>
+    </form>
+  </div>
+</section>
+</main>
+<footer><span>© OffTap Plumbing &amp; Gas</span><span>Hervey Bay · Maryborough · Fraser Coast QLD</span></footer>
+<script src="../assets/hybrid.js"></script>
+</body>
+</html>

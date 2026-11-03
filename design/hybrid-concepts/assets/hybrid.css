@@ -1,0 +1,76 @@
+/* Shared base for the A × Pressure hybrids: palette, type, buttons, cutaway scene, pressure gauge, aurora. */
+:root{
+  --bg:#0C151C;--bg2:#0E2633;--panel:#0f1c25;
+  --blue:#00A9ED;--orange:#F28E52;
+  --text:#F1F5F7;--muted:#8FA3AD;--dim:#5d7480;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+  --grad:linear-gradient(in oklch 120deg,var(--blue),var(--orange));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 18px/1.6 "Bricolage Grotesque",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.04em;line-height:.98;margin:0}
+.wrap{max-width:1300px;margin:0 auto;padding:0 40px}
+.mono{font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;gap:10px;align-items:center;font-weight:700;font-size:17px;padding:18px 26px;border-radius:16px;transition:transform .2s,box-shadow .2s;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri{background:var(--grad);color:#08131a;box-shadow:0 12px 40px -14px rgba(242,142,82,.7)}
+.btn.sec{background:rgba(255,255,255,.06);border:1px solid var(--line2);color:var(--text)}
+
+/* aurora glow */
+.aurora{position:absolute;inset:-20% -10% auto;height:130%;z-index:-1;filter:blur(70px);opacity:.8;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;mix-blend-mode:screen}
+.aurora i:nth-child(1){width:46vw;height:46vw;left:44%;top:0;background:radial-gradient(circle,var(--blue),transparent 65%);animation:a1 14s ease-in-out infinite alternate}
+.aurora i:nth-child(2){width:36vw;height:36vw;left:66%;top:24%;background:radial-gradient(circle,var(--orange),transparent 65%);animation:a2 17s ease-in-out infinite alternate}
+.aurora i:nth-child(3){width:28vw;height:28vw;left:54%;top:42%;background:radial-gradient(circle,#5a4fd6,transparent 65%);animation:a1 20s ease-in-out infinite alternate-reverse}
+@keyframes a1{to{transform:translate(-12%,10%) scale(1.15)}}
+@keyframes a2{to{transform:translate(8%,-14%) scale(.9)}}
+
+/* glass card */
+.glass{background:rgba(12,21,28,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line2);border-radius:28px;box-shadow:0 40px 100px -30px rgba(0,0,0,.7)}
+
+/* cutaway scene */
+.scene{display:block;width:100%;height:auto}
+.scene .pipe{fill:none;stroke:#24526a;stroke-width:5;stroke-linecap:round;transition:stroke .3s}
+.scene .pipe.on{stroke:var(--blue);filter:drop-shadow(0 0 6px rgba(0,169,237,.8))}
+.scene .flow{fill:none;stroke:#bfe9ff;stroke-width:2;stroke-dasharray:4 14;stroke-linecap:round;opacity:0;animation:flow 1.2s linear infinite}
+.scene .flow.on{opacity:.9}
+@keyframes flow{to{stroke-dashoffset:-18}}
+.scene .hot{cursor:pointer;outline:none}
+.scene .hot .ring{fill:none;stroke:var(--orange);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
+.scene .hot.on .ring{opacity:1;animation:ring 1.6s ease-out infinite}
+.scene .hot .dot{fill:#0f1c25;stroke:#4f7d92;stroke-width:2;transition:all .25s}
+.scene .hot.on .dot,.scene .hot:hover .dot,.scene .hot:focus-visible .dot{fill:var(--orange);stroke:#ffd3b5}
+@keyframes ring{0%{transform:scale(.6);opacity:1}100%{transform:scale(2.4);opacity:0}}
+.scene .scan{animation:scan 5s ease-in-out infinite alternate}
+@keyframes scan{from{transform:translateX(0)}to{transform:translateX(560px)}}
+
+/* symptom chips */
+.symptoms{display:flex;flex-wrap:wrap;gap:8px}
+.symptoms button{font:600 14px "Bricolage Grotesque",sans-serif;color:#c3cfd5;background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:99px;padding:10px 16px;cursor:pointer;transition:all .2s}
+.symptoms button:hover{color:#fff;border-color:var(--blue)}
+.symptoms button[aria-pressed=true]{background:var(--grad);border-color:transparent;color:#08131a}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{font:500 11px "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);border:1px solid rgba(0,169,237,.35);border-radius:6px;padding:5px 8px}
+
+/* pressure gauge (markup injected by hybrid.js) */
+.gauge-dial{position:relative}
+.gauge-dial svg{display:block;width:100%;height:auto}
+.gauge-dial .reading{position:absolute;left:0;right:0;bottom:4%;text-align:center}
+.gauge-dial .v{display:block;font:700 64px/1 "JetBrains Mono",monospace;letter-spacing:-.04em}
+.gauge-dial .u{font:500 12px "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--muted)}
+.g-status{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:rgba(242,142,82,.12);border:1px solid rgba(242,142,82,.35);font-weight:600;font-size:15px;line-height:1.35}
+.g-status i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--orange);animation:bl 1s steps(2) infinite}
+@keyframes bl{50%{opacity:.2}}
+.g-status.ok{background:rgba(0,169,237,.12);border-color:rgba(0,169,237,.4)}
+.g-status.ok i{background:var(--blue);animation:none}
+.g-status button{margin-left:auto;flex:none;white-space:nowrap;font:600 13px "Bricolage Grotesque";color:#fff;background:none;border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:7px 12px;cursor:pointer}
+
+/* method tabs (from concept A) */
+[role=tabpanel]{display:none}
+[role=tabpanel].on{display:grid;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}}
+
+.placeholder-label{font:500 11px "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Leak Detection Hervey Bay &amp; Maryborough | OffTap Plumbing &amp; Gas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<script src="../assets/review.js"></script>
+<style>
+:root{--bg:#0C151C;--blue:#00A9ED;--orange:#F28E52;--text:#F1F5F7;--muted:#90A3AD;--line:rgba(255,255,255,.09)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 18px/1.6 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+.d{font-family:Anton,Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:.9;letter-spacing:.005em;margin:0}
+.b{color:var(--blue)}.o{color:var(--orange)}
+.k{font-weight:800;font-size:13px;letter-spacing:.24em;text-transform:uppercase}
+
+header{position:absolute;inset:0 0 auto;z-index:4}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:90px}
+header nav{display:flex;gap:32px;font-weight:700;font-size:15px}
+header nav a:hover{color:var(--orange)}
+.call{font-weight:800;border:2px solid #fff;border-radius:10px;padding:10px 18px}
+
+/* hero: split water / fire with lion in the middle */
+.hero{position:relative;height:100vh;min-height:760px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;isolation:isolate}
+.half{position:relative;display:flex;flex-direction:column;justify-content:center;padding:0 40px}
+.water{background:radial-gradient(80% 70% at 100% 50%,rgba(0,169,237,.55),transparent 70%),linear-gradient(160deg,#071f2c,#0C151C 70%);align-items:flex-start;padding-left:max(40px,calc((100vw - 1320px)/2 + 40px))}
+.fire{background:radial-gradient(80% 70% at 0% 50%,rgba(242,142,82,.5),transparent 70%),linear-gradient(200deg,#2a140b,#0C151C 70%);align-items:flex-end;text-align:right;padding-right:max(40px,calc((100vw - 1320px)/2 + 40px))}
+.half h2{font-size:clamp(70px,9vw,160px)}
+.half p{max-width:330px;color:#c8d4d9;margin:22px 0 0;font-size:17px}
+.half .k{margin-bottom:18px}
+.lion{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:min(32vw,460px);z-index:2;filter:drop-shadow(0 30px 60px rgba(0,0,0,.6)) drop-shadow(-30px 0 60px rgba(0,169,237,.35)) drop-shadow(30px 0 60px rgba(242,142,82,.35));animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translate(-50%,-47%)}}
+.flames{position:absolute;left:0;right:0;bottom:0;height:120px;background:url(../assets/fire-banner.png) center bottom/auto 120px repeat-x;z-index:1;opacity:.95}
+.hero-cta{position:absolute;left:50%;bottom:140px;transform:translateX(-50%);z-index:3;display:flex;gap:12px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;padding:18px 28px;border-radius:12px;font-size:16px;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.pri{background:linear-gradient(in oklch 90deg,var(--blue),var(--orange));color:#08131a}
+.btn.dark{background:rgba(12,21,28,.85);border:1px solid rgba(255,255,255,.2)}
+
+/* manifesto */
+.mani{padding:150px 0 120px;text-align:center}
+.mani .k{color:var(--orange)}
+.mani h1{font-size:clamp(54px,7.4vw,128px);margin:26px auto 0;max-width:13ch}
+.mani h1 span{background:linear-gradient(in oklch 90deg,var(--blue),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
+.mani p{max-width:620px;margin:34px auto 0;color:var(--muted);font-size:20px}
+
+/* methods marquee cards */
+.methods{padding:40px 0 140px}
+.mrow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.mc{position:relative;aspect-ratio:3/4.3;border-radius:22px;overflow:hidden;padding:26px;display:flex;flex-direction:column;justify-content:space-between;background:#0f1c25;border:1px solid var(--line);transition:transform .35s}
+.mc::before{content:"";position:absolute;inset:0;background:var(--g);opacity:.9;transition:opacity .4s;z-index:-1}
+.mc{isolation:isolate}
+.mc:hover{transform:translateY(-10px) rotate(-1deg)}
+.mc .d{font-size:82px;opacity:.25}
+.mc h3{font-family:Anton;font-weight:400;text-transform:uppercase;font-size:34px;line-height:.95;margin:0 0 12px}
+.mc p{margin:0;font-size:15px;color:#d7e2e6}
+.mc:nth-child(1){--g:linear-gradient(180deg,#003a55,#00A9ED)}
+.mc:nth-child(2){--g:linear-gradient(180deg,#0a2a3d,#2f80c4)}
+.mc:nth-child(3){--g:linear-gradient(180deg,#1b2235,#8a7bb0)}
+.mc:nth-child(4){--g:linear-gradient(180deg,#3a1a0d,#d86a35)}
+.mc:nth-child(5){--g:linear-gradient(180deg,#4a200c,#F28E52)}
+
+/* signs */
+.signs{background:linear-gradient(90deg,#082231,#0C151C 50%,#2a160c);padding:120px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.signs-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:70px;align-items:center}
+.signs h2{font-size:clamp(56px,6.6vw,110px)}
+.list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.list div{padding:28px;border-radius:18px;background:rgba(12,21,28,.7);border:1px solid var(--line)}
+.list b{display:block;font-size:20px;margin-bottom:6px}
+.list span{color:var(--muted);font-size:15px}
+.list div:nth-child(odd) b::before{content:"● ";color:var(--blue)}
+.list div:nth-child(even) b::before{content:"● ";color:var(--orange)}
+
+/* who */
+.who{padding:140px 0}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.who a{border-radius:26px;padding:50px;min-height:400px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line);transition:transform .3s}
+.who a:hover{transform:translateY(-4px)}
+.who a:first-child{background:radial-gradient(100% 80% at 0% 0%,rgba(0,169,237,.45),transparent 60%),#0f1c25}
+.who a:last-child{background:radial-gradient(100% 80% at 100% 0%,rgba(242,142,82,.45),transparent 60%),#0f1c25}
+.who h3{font-size:clamp(44px,4.4vw,70px);margin-top:16px}
+.who p{color:#c8d4d9;max-width:430px}
+.who .go{font-weight:800}
+
+/* process */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid;border-image:linear-gradient(in oklch 90deg,var(--blue),var(--orange)) 1}
+.proc div{padding:34px 26px 0 0}
+.proc .d{font-size:64px;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.4)}
+.proc b{display:block;font-size:21px;margin:16px 0 6px}
+.proc span{color:var(--muted);font-size:16px}
+
+.q{padding:120px 0;text-align:center}
+.q blockquote{font-family:Anton;text-transform:uppercase;font-size:clamp(38px,4.4vw,70px);line-height:1;margin:20px auto 0;max-width:20ch}
+.q cite{display:block;margin-top:20px;font-style:normal;color:var(--muted)}
+
+.end{position:relative;padding:140px 0 200px;text-align:center;overflow:hidden;background:radial-gradient(60% 80% at 25% 100%,rgba(0,169,237,.35),transparent 60%),radial-gradient(60% 80% at 75% 100%,rgba(242,142,82,.35),transparent 60%)}
+.end h2{font-size:clamp(70px,11vw,190px)}
+.end .num{display:block;font-family:Anton;font-size:clamp(40px,5vw,80px);margin:30px 0 10px;letter-spacing:.02em}
+.end p{color:var(--muted);margin:0 0 34px}
+.end .flames{height:110px;background-size:auto 110px}
+footer{padding:26px 40px;display:flex;justify-content:space-between;color:var(--muted);font-size:14px;flex-wrap:wrap;gap:10px}
+@media(max-width:960px){.hero{grid-template-columns:1fr;height:auto}.half{padding:120px 30px}.lion{display:none}.hero-cta{position:static;transform:none;justify-content:center;padding:30px}.mrow{grid-template-columns:1fr 1fr}.signs-grid,.who-grid,.list{grid-template-columns:1fr}.proc{grid-template-columns:1fr 1fr}header nav{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <span class="k">OffTap Plumbing &amp; Gas</span>
+  <nav><a href="#methods">Leak detection</a><a href="#who">Homes &amp; commercial</a><a href="#process">Process</a><a href="#end">Contact</a></nav>
+  <a class="call" href="tel:+61400152680">0400 152 680</a>
+</div></header>
+
+<main>
+<section class="hero" aria-label="OffTap: water and gas">
+  <div class="half water"><span class="k b">Leak detection</span><h2 class="d">Water</h2><p>Hidden and underground leaks found with acoustic, tracer gas, nitrogen and thermal methods.</p></div>
+  <div class="half fire"><span class="k o">Plumbing &amp; gas fitting</span><h2 class="d">&amp; Gas</h2><p>Licensed repairs, maintenance and gas work across the Fraser Coast.</p></div>
+  <img class="lion" src="../assets/offtap-logo.svg" alt="OffTap Plumbing &amp; Gas">
+  <div class="hero-cta"><a class="btn pri" href="#end">Book leak detection →</a><a class="btn dark" href="tel:+61400152680">Call 0400 152 680</a></div>
+  <div class="flames" aria-hidden="true"></div>
+</section>
+
+<section class="mani">
+  <div class="wrap">
+    <span class="k">Hervey Bay · Maryborough · Fraser Coast</span>
+    <h1 class="d">We find the leaks <span>nobody else can.</span></h1>
+    <p>Specialist leak detection for homes, businesses and commercial sites. We find the source first, so you don't dig up the yard, the driveway or the slab to look for it.</p>
+  </div>
+</section>
+
+<section class="methods" id="methods">
+  <div class="wrap mrow">
+    <div class="mc"><span class="d">01</span><div><h3>Acoustic detection</h3><p>Listening for water escaping pressurised pipe.</p></div></div>
+    <div class="mc"><span class="d">02</span><div><h3>Nitrogen testing</h3><p>Checking whether a line holds pressure.</p></div></div>
+    <div class="mc"><span class="d">03</span><div><h3>Tracer gas</h3><p>Finding small leaks too quiet to hear.</p></div></div>
+    <div class="mc"><span class="d">04</span><div><h3>Thermal imaging</h3><p>Spotting warm, wet areas in slabs and walls.</p></div></div>
+    <div class="mc"><span class="d">05</span><div><h3>Pipe locating</h3><p>Tracing where the service actually runs.</p></div></div>
+  </div>
+</section>
+
+<section class="signs">
+  <div class="wrap signs-grid">
+    <h2 class="d">Know the <span class="b">signs.</span></h2>
+    <div class="list">
+      <div><b>Water bill jumped</b><span>Usage up, habits unchanged.</span></div>
+      <div><b>Meter won't stop</b><span>Every tap off, still ticking.</span></div>
+      <div><b>Soggy patch of lawn</b><span>Green, soft and never dries.</span></div>
+      <div><b>Damp with no source</b><span>Walls, floors or concrete.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="who" id="who">
+  <div class="wrap who-grid">
+    <a href="#end"><div><span class="k b">Homeowners</span><h3 class="d">Before anyone digs.</h3></div><div><p>High bills, wet patches and damp floors. We find the cause and explain the next step before unnecessary excavation.</p><span class="go">Book a home investigation →</span></div></a>
+    <a href="#end"><div><span class="k o">Commercial &amp; trade</span><h3 class="d">Marked. Explained. Done.</h3></div><div><p>Support for plumbers, builders and property managers, with on-site marking and written findings.</p><span class="go">Discuss a commercial job →</span></div></a>
+  </div>
+</section>
+
+<section id="process" style="padding-bottom:40px">
+  <div class="wrap proc">
+    <div><span class="d">01</span><b>Tell us what you're seeing</b><span>A short call about the property and symptoms.</span></div>
+    <div><span class="d">02</span><b>Site assessment</b><span>We choose the testing options that suit.</span></div>
+    <div><span class="d">03</span><b>Investigation</b><span>Methods combined to narrow the location.</span></div>
+    <div><span class="d">04</span><b>Findings</b><span>Explained, and marked for repair where possible.</span></div>
+  </div>
+</section>
+
+<section class="q" data-placeholder>
+  <div class="wrap"><span class="k o">Placeholder testimonial</span><blockquote>"One small hole instead of the whole driveway."</blockquote><cite>Customer name · Hervey Bay</cite></div>
+</section>
+</main>
+
+<section class="end" id="end">
+  <div class="wrap">
+    <h2 class="d">Got a <span class="b">leak?</span><br><span class="o">Call the lion.</span></h2>
+    <a class="num" href="tel:+61400152680">0400 152 680</a>
+    <p>offtapplumbingandgas@hotmail.com · QBCC 15403045 · Gas licence L95159</p>
+    <a class="btn pri" href="mailto:offtapplumbingandgas@hotmail.com">Send an enquiry →</a>
+  </div>
+  <div class="flames" aria-hidden="true"></div>
+</section>
+<footer><span>© OffTap Plumbing &amp; Gas</span><span>Fraser Coast QLD</span></footer>
+</body>
+</html>

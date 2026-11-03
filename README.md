@@ -9,6 +9,8 @@ This repository holds the client brief, supplied brand assets, and homepage conc
 | [`docs/client-brief/`](docs/client-brief/) | Client handover, content and design brief, original five-page draft, and earlier multi-page website mockup. Start with [`START_HERE.txt`](docs/client-brief/START_HERE.txt). |
 | [`docs/brand-assets/`](docs/brand-assets/) | Supplied SVG logo and `FireBanner1.png`. |
 | [`design/initial-concepts/`](design/initial-concepts/) | Four initial homepage directions, their shared assets, and the supplied concept notes. |
+| [`design/dark-concepts/`](design/dark-concepts/) | Round 2: four dark, gradient-led homepage directions (Surge, Pressure, Water &amp; Fire, Pinpoint). Open [`index.html`](design/dark-concepts/index.html). |
+| [`design/hybrid-concepts/`](design/hybrid-concepts/) | Round 3: four hybrids of initial Concept A (Under the Surface) and dark Concept 2 (Pressure): Readout, Control Room, Deep Scan, Talking Pipes. They share `assets/hybrid.js` and `assets/hybrid.css`. Open [`index.html`](design/hybrid-concepts/index.html). |
 
 The extracted source files are unchanged. The two nested ZIP files contained identical copies of the extracted handover and concepts, so duplicate archives are omitted. macOS metadata files are also omitted.
 
