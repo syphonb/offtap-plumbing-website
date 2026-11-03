@@ -124,20 +124,90 @@ section{padding:120px 0}
 
 .cta{position:relative;margin:0 40px 40px;border-radius:40px;overflow:hidden;padding:100px 70px;isolation:isolate;background:#0d1a22}
 .cta .aurora{inset:-30%;height:auto}
-.cta{padding-right:470px}
-.cta-lion{position:absolute;right:30px;bottom:0;height:calc(100% - 30px);max-height:520px;width:auto;z-index:-1;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+.cta{padding-right:420px}
+.cta-lion{position:absolute;right:-120px;top:48px;width:470px;height:auto;z-index:-1;filter:drop-shadow(-20px 20px 40px rgba(0,0,0,.45))}
 .cta h2{font-size:clamp(48px,6vw,100px);max-width:12ch}
 .cta-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:50px;flex-wrap:wrap}
 .num{font:700 clamp(32px,3.6vw,52px) "Space Grotesk";letter-spacing:-.02em}
 footer{padding:20px 40px 40px;display:flex;justify-content:space-between;color:var(--muted);font-size:14px;flex-wrap:wrap;gap:12px}
-@media(max-width:1100px){.cta{padding-right:70px}.cta-lion{opacity:.25}.stage{position:relative;width:100%;right:0;transform:none;-webkit-mask:none;mask:none;margin-top:40px}.hero{display:block}.sec-head,.methods-ui,.m-panel,.aud{grid-template-columns:1fr}.sign-grid,.steps,.proof{grid-template-columns:1fr 1fr}.steps::before{display:none}.nav nav{display:none}}
+/* mobile menu */
+.menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:#fff;cursor:pointer;padding:0;align-items:center;justify-content:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;position:relative;transition:transform .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.menu-open .menu-btn span{background:transparent}
+.menu-open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
+.menu-open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* tablet */
+@media(max-width:1100px){
+  .nav nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;margin:0;padding:8px 20px 20px;background:rgba(12,21,28,.97);border-bottom:1px solid var(--line)}
+  .menu-open .nav nav{display:flex}
+  .nav nav a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:17px;color:#dbe4e8}
+  .menu-btn{display:inline-flex}
+  .call{margin-left:auto}
+  .hero{display:flex;flex-direction:column;align-items:stretch;min-height:0;padding:64px 0 40px}
+  .stage{order:2}
+  .copy{max-width:640px}
+  .stage{position:relative;width:auto;right:auto;top:auto;transform:none;margin:24px -40px 0 0;-webkit-mask:linear-gradient(90deg,transparent,#000 25%);mask:linear-gradient(90deg,transparent,#000 25%)}
+  section{padding:88px 0}
+  .sec-head{grid-template-columns:1fr;gap:18px;margin-bottom:40px}
+  .sign-grid,.steps{grid-template-columns:1fr 1fr}
+  .steps{row-gap:40px}.steps::before{display:none}
+  .methods-ui{grid-template-columns:1fr;gap:18px}
+  .m-tabs{flex-direction:row;overflow-x:auto;scrollbar-width:none;margin:0 -40px;padding:2px 40px}
+  .m-tabs::-webkit-scrollbar{display:none}
+  .m-tab{flex:none;grid-template-columns:auto auto;gap:10px;padding:12px 16px;border-color:var(--line)}
+  .m-tab b{font-size:15px;white-space:nowrap}
+  .m-panel{grid-template-columns:1fr}
+  .m-art{min-height:0;border-right:0;border-bottom:1px solid var(--line)}
+  .aud{grid-template-columns:1fr}
+  .proof{grid-template-columns:1fr 1fr}
+  .cta{padding:72px 300px 72px 48px}
+  .cta-lion{width:380px;right:-110px;top:auto;bottom:-160px}
+  .cta-row{flex-direction:column;align-items:flex-start;gap:22px}
+}
+
+/* phone */
+@media(max-width:700px){
+  .wrap{padding:0 20px}
+  .nav{height:68px;gap:12px}
+  .brand img{width:42px}.brand b{font-size:16px}.brand small{font-size:9px;letter-spacing:.14em}
+  .call{font-size:14px;padding:10px 12px}
+  .hero{padding:44px 0 24px}
+  .hero h1{font-size:clamp(36px,10.5vw,48px)}
+  .hero .lead{font-size:17px;margin:18px 0 26px}
+  .btns .btn{flex:1 1 100%;justify-content:center}
+  .creds{flex-wrap:wrap;gap:8px 18px;margin-top:24px}
+  .stage{margin:16px -20px 0 -20px;-webkit-mask:none;mask:none}
+  section{padding:64px 0}
+  .sec-head h2{font-size:32px}
+  .sign-grid,.steps,.proof{grid-template-columns:1fr}
+  .sign{padding:24px 22px 26px}
+  .sign .glyph{margin-bottom:18px}
+  .m-tabs{margin:0 -20px;padding:2px 20px}
+  .m-art{padding:16px}
+  .m-copy{padding:26px 22px}
+  .m-copy h3{font-size:26px}
+  .aud{border-radius:24px}
+  .aud a{padding:36px 24px}
+  .aud h3{font-size:28px}
+  .honest{text-align:left}
+  .cta{margin:0 12px 24px;border-radius:28px;padding:52px 24px 300px}
+  .cta h2{font-size:clamp(38px,11vw,52px)}
+  .num{font-size:32px}
+  .cta-lion{width:300px;right:-70px;bottom:-130px}
+  .cta .btn{width:100%;justify-content:center}
+  footer{padding:20px 20px 32px;flex-direction:column}
+}
 </style>
 </head>
 <body>
 <header class="tone-b"><div class="wrap nav">
   <a class="brand" href="#"><img src="../assets/offtap-logo.svg" alt=""><span><b>OFFTAP</b><small>Plumbing &amp; Gas</small></span></a>
-  <nav aria-label="Primary"><a href="#methods">Leak detection</a><a href="#who">Homes &amp; commercial</a><a href="#process">Our process</a><a href="#contact">Plumbing &amp; gas</a><a href="#contact">Contact</a></nav>
+  <nav id="primary-nav" aria-label="Primary"><a href="#methods">Leak detection</a><a href="#who">Homes &amp; commercial</a><a href="#process">Our process</a><a href="#contact">Plumbing &amp; gas</a><a href="#contact">Contact</a></nav>
   <a class="call" href="tel:+61400152680">0400 152 680</a>
+  <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav"><span></span></button>
 </div></header>
 
 <main>
@@ -323,6 +393,9 @@ footer{padding:20px 40px 40px;display:flex;justify-content:space-between;color:v
 </div>
 <footer><span>© OffTap Plumbing &amp; Gas</span><span>Hervey Bay · Maryborough · Fraser Coast QLD</span></footer>
 <script>
+var mb=document.querySelector('.menu-btn'),hd=document.querySelector('header');
+mb.onclick=function(){var o=hd.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)};
+hd.querySelectorAll('nav a').forEach(function(a){a.onclick=function(){hd.classList.remove('menu-open');mb.setAttribute('aria-expanded',false)}});
 var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
 tabs.forEach(function(t){t.onclick=function(){tabs.forEach(function(x){x.setAttribute('aria-selected',x===t);document.getElementById(x.getAttribute('aria-controls')).classList.toggle('on',x===t)})}});
 </script>
