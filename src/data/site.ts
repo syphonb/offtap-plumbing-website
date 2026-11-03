@@ -14,9 +14,9 @@ export const site = {
 };
 
 export const navigation = [
-  { href: "/#methods", label: "Leak detection" },
-  { href: "/#who", label: "Homes & commercial" },
-  { href: "/#process", label: "Our process" },
-  { href: "/#plumbing-gas", label: "Plumbing & gas" },
-  { href: "/#contact", label: "Contact" },
+  { href: "#", label: "Leak detection" },
+  { href: "#", label: "Homes & commercial" },
+  { href: "#", label: "Our process" },
+  { href: "#", label: "Plumbing & gas" },
+  { href: "#", label: "Contact" },
 ];

@@ -104,8 +104,14 @@ test("content, links and all method explanations exist without executing JavaScr
   }
   for (const element of $("a[href]").toArray()) {
     const href = $(element).attr("href");
+    if (href === "#") continue;
     if (href.startsWith("#") || href.startsWith("/#"))
       assert.ok(ids.includes(href.split("#")[1]), `Broken anchor: ${href}`);
+  }
+  const navigationLinks = $('nav[aria-label="Primary"] a');
+  assert.equal(navigationLinks.length, 5);
+  for (const element of navigationLinks.toArray()) {
+    assert.equal($(element).attr("href"), "#");
   }
   assert.ok($('a[href="tel:+61400152680"]').length);
   assert.ok($('a[href^="mailto:offtapplumbingandgas@hotmail.com"]').length);
