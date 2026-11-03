@@ -47,6 +47,10 @@ header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px
 .stage svg{display:block;width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
 .stage .pipe{fill:none;stroke:var(--blue);stroke-width:5;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(0,169,237,.8))}
 .stage .flow{fill:none;stroke:#bfe9ff;stroke-width:2;stroke-dasharray:4 14;stroke-linecap:round;opacity:.9;animation:flow 1.2s linear infinite}
+.stage .listen path{animation:listen 1.8s ease-out infinite;opacity:0}
+.stage .listen path:nth-child(2){animation-delay:.3s}.stage .listen path:nth-child(3){animation-delay:.6s}
+@keyframes listen{0%{opacity:0}30%{opacity:.9}100%{opacity:0}}
+.stage .lion{filter:drop-shadow(0 10px 16px rgba(0,0,0,.6))}
 .stage .leak-ring{fill:none;stroke:var(--orange);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ring 1.8s ease-out infinite}
 .copy{max-width:600px}
 .hero h1{font-size:clamp(48px,5.2vw,84px)}
@@ -120,11 +124,13 @@ section{padding:120px 0}
 
 .cta{position:relative;margin:0 40px 40px;border-radius:40px;overflow:hidden;padding:100px 70px;isolation:isolate;background:#0d1a22}
 .cta .aurora{inset:-30%;height:auto}
+.cta{padding-right:470px}
+.cta-lion{position:absolute;right:30px;bottom:0;height:calc(100% - 30px);max-height:520px;width:auto;z-index:-1;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
 .cta h2{font-size:clamp(48px,6vw,100px);max-width:12ch}
 .cta-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-top:50px;flex-wrap:wrap}
 .num{font:700 clamp(32px,3.6vw,52px) "Space Grotesk";letter-spacing:-.02em}
 footer{padding:20px 40px 40px;display:flex;justify-content:space-between;color:var(--muted);font-size:14px;flex-wrap:wrap;gap:12px}
-@media(max-width:1100px){.stage{position:relative;width:100%;right:0;transform:none;-webkit-mask:none;mask:none;margin-top:40px}.hero{display:block}.sec-head,.methods-ui,.m-panel,.aud{grid-template-columns:1fr}.sign-grid,.steps,.proof{grid-template-columns:1fr 1fr}.steps::before{display:none}.nav nav{display:none}}
+@media(max-width:1100px){.cta{padding-right:70px}.cta-lion{opacity:.25}.stage{position:relative;width:100%;right:0;transform:none;-webkit-mask:none;mask:none;margin-top:40px}.hero{display:block}.sec-head,.methods-ui,.m-panel,.aud{grid-template-columns:1fr}.sign-grid,.steps,.proof{grid-template-columns:1fr 1fr}.steps::before{display:none}.nav nav{display:none}}
 </style>
 </head>
 <body>
@@ -171,6 +177,10 @@ footer{padding:20px 40px 40px;display:flex;justify-content:space-between;color:v
         <text x="40" y="232">METER</text><text x="196" y="330">YARD SERVICE</text><text x="482" y="134">WALL</text>
       </g>
       <text x="356" y="296" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600" fill="#F28E52" letter-spacing="1.5">LEAK · UNDER SLAB</text>
+      <g class="listen" stroke="#00A9ED" stroke-width="1.6" fill="none" stroke-linecap="round">
+        <path d="M238 214a14 14 0 0 0 24 0"/><path d="M230 222a24 24 0 0 0 40 0"/><path d="M222 230a34 34 0 0 0 56 0"/>
+      </g>
+      <image class="lion" href="../assets/lion-listening.png" x="230" y="15" width="124" height="189"/>
     </svg>
   </div>
   <div class="wrap">
@@ -303,6 +313,7 @@ footer{padding:20px 40px 40px;display:flex;justify-content:space-between;color:v
 
 <div class="cta tone-b" id="contact">
   <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <img class="cta-lion" src="../assets/lion-call.png" alt="">
   <h2>Tell us what you're <span class="g">noticing.</span></h2>
   <div class="cta-row">
     <div><a class="num" href="tel:+61400152680">0400 152 680</a><p style="margin:6px 0 0;color:#c3cfd5">offtapplumbingandgas@hotmail.com</p></div>
