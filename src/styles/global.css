@@ -242,8 +242,8 @@ h4 {
   flex: none;
 }
 .brand img {
-  width: 62px;
-  height: 62px;
+  width: 74px;
+  height: 74px;
 }
 .brand b {
   font: 700 19px/1 "Space Grotesk";
@@ -251,7 +251,9 @@ h4 {
   display: block;
 }
 .brand small {
-  font: 500 10px "Space Grotesk";
+  display: block;
+  margin-top: 4px;
+  font: 500 10px/1 "Space Grotesk";
   letter-spacing: 0.2em;
   color: var(--muted);
   text-transform: uppercase;
@@ -973,8 +975,8 @@ footer {
     height: 68px;
   }
   .brand img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
   }
   .brand b {
     font-size: 16px;
