@@ -10,6 +10,17 @@
 <link rel="stylesheet" href="../assets/hybrid.css">
 <script src="../assets/review.js"></script>
 <style>
+/* Single-colour gradients, alternating by section: blue, orange, blue... */
+:root{--grad-b:linear-gradient(120deg,#8fdcff,#00A9ED 55%,#0386d0);--grad-o:linear-gradient(120deg,#ffc79e,#F28E52 55%,#e0662c)}
+.tone-b{--grad:var(--grad-b);--glow1:#00A9ED;--glow2:#0386d0;--glow3:#3cc3ff}
+.tone-o{--grad:var(--grad-o);--glow1:#F28E52;--glow2:#e0662c;--glow3:#ffb07a}
+.aurora i:nth-child(1){background:radial-gradient(circle,var(--glow1),transparent 65%)}
+.aurora i:nth-child(2){background:radial-gradient(circle,var(--glow2),transparent 65%)}
+.aurora i:nth-child(3){background:radial-gradient(circle,var(--glow3),transparent 65%)}
+.tone-b .btn.pri{box-shadow:0 12px 40px -14px rgba(0,169,237,.7)}
+.tone-o .sec-head .mono{color:var(--orange)}
+.tone-o .step .n{border-color:var(--orange);color:var(--orange)}
+
 /* Concept A type: Space Grotesk headings and labels, Inter body */
 body{font:400 17px/1.65 Inter,system-ui,sans-serif}
 h1,h2,h3,h4{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;letter-spacing:-.03em;line-height:1.04}
@@ -117,21 +128,21 @@ footer{padding:20px 40px 40px;display:flex;justify-content:space-between;color:v
 </style>
 </head>
 <body>
-<header><div class="wrap nav">
+<header class="tone-b"><div class="wrap nav">
   <a class="brand" href="#"><img src="../assets/offtap-logo.svg" alt=""><span><b>OFFTAP</b><small>Plumbing &amp; Gas</small></span></a>
   <nav aria-label="Primary"><a href="#methods">Leak detection</a><a href="#who">Homes &amp; commercial</a><a href="#process">Our process</a><a href="#contact">Plumbing &amp; gas</a><a href="#contact">Contact</a></nav>
   <a class="call" href="tel:+61400152680">0400 152 680</a>
 </div></header>
 
 <main>
-<section class="hero">
+<section class="hero tone-o">
   <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="stage" aria-hidden="true">
     <svg viewBox="0 0 640 380" fill="none">
       <defs>
         <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E2633"/><stop offset="1" stop-color="#0C151C"/></linearGradient>
         <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#1d4459"/></pattern>
-        <linearGradient id="roof" x1="0" x2="1"><stop offset="0" stop-color="#00A9ED"/><stop offset="1" stop-color="#F28E52"/></linearGradient>
+        <linearGradient id="roof" x1="0" x2="1"><stop offset="0" stop-color="#ffc79e"/><stop offset="1" stop-color="#e0662c"/></linearGradient>
         <radialGradient id="leakglow"><stop offset="0" stop-color="#F28E52" stop-opacity=".55"/><stop offset="1" stop-color="#F28E52" stop-opacity="0"/></radialGradient>
       </defs>
       <rect y="200" width="640" height="180" fill="url(#soil)"/>
@@ -173,7 +184,7 @@ footer{padding:20px 40px 40px;display:flex;justify-content:space-between;color:v
   </div>
 </section>
 
-<section class="signs">
+<section class="signs tone-b">
   <div class="wrap">
     <div class="sec-head"><div><span class="mono">Signs of a hidden leak</span><h2>Most leaks don't announce themselves.</h2></div><p>If any of these sound familiar, it's worth a conversation before anyone starts digging. A short call is usually enough to tell whether an investigation makes sense.</p></div>
     <div class="sign-grid">
@@ -185,7 +196,7 @@ footer{padding:20px 40px 40px;display:flex;justify-content:space-between;color:v
   </div>
 </section>
 
-<section id="methods">
+<section id="methods" class="tone-o">
   <div class="wrap">
     <div class="sec-head"><div><span class="mono">How we investigate</span><h2>The right method depends on the pipe, the ground and <span class="g">the leak.</span></h2></div><p>We don't rely on a single tool. Each investigation combines methods chosen for your pipework and site conditions, explained in plain English as we go.</p></div>
     <div class="methods-ui">
@@ -262,14 +273,14 @@ footer{padding:20px 40px 40px;display:flex;justify-content:space-between;color:v
   </div>
 </section>
 
-<section id="who" style="padding-top:0">
+<section id="who" class="tone-b" style="padding-top:0">
   <div class="wrap aud">
     <a href="#contact"><span class="mono">For homeowners</span><h3>Find the leak before anyone starts digging.</h3><p>We investigate the cause and help you understand the next step before unnecessary excavation.</p><ul><li>High bills and a meter that won't stop</li><li>Wet patches in the lawn or garden</li><li>Damp floors, walls or ceilings</li><li>Leaks under slabs, driveways and paths</li></ul><span class="arrow">Book a residential investigation →</span></a>
     <a href="#contact"><span class="mono">For commercial &amp; trade</span><h3>Clear findings your repair team can work from.</h3><p>We assist plumbing contractors, builders and property managers with complex investigations.</p><ul><li>Plumbing contractors needing a specialist</li><li>Builders and developers</li><li>Property and strata managers</li><li>On-site marking and written findings</li></ul><span class="arrow">Discuss a commercial job →</span></a>
   </div>
 </section>
 
-<section id="process" style="padding-top:0">
+<section id="process" class="tone-o" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head"><div><span class="mono">Our process</span><h2>From "something's wrong" to <span class="g">a clear answer.</span></h2></div><p>You'll know what we're doing, why we're doing it and what we found, without the jargon.</p></div>
     <div class="steps">
@@ -290,7 +301,7 @@ footer{padding:20px 40px 40px;display:flex;justify-content:space-between;color:v
 </section>
 </main>
 
-<div class="cta" id="contact">
+<div class="cta tone-b" id="contact">
   <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
   <h2>Tell us what you're <span class="g">noticing.</span></h2>
   <div class="cta-row">
