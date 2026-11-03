@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# No authentication, backing services, or repairs are needed yet.
+# Dependencies belong in setup, never in this wake hook.

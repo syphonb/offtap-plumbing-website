@@ -30,3 +30,21 @@ The [supplied concept notes](design/initial-concepts/README.md) describe the int
 Keep the initial concepts as a reference. Put new homepage alternatives in separate folders under `design/`, with their own entry HTML and assets. Keep the client-supplied documents and earlier mockup under `docs/` separate from new design work.
 
 The client handover prioritises specialist leak detection, with plumbing and gas fitting secondary. Before publication, verify contact details, licensing, service coverage, capabilities, and any placeholder claims. Choose and refine a design before building the Astro site.
+
+## Prepare an orb
+
+Amp runs the executable `.agents/setup` before saving a reusable project snapshot. Setup installs Node.js from `.node-version`, pnpm from `package.json`, and Astro dependencies from `pnpm-lock.yaml`. Matching snapshots retain the installed tools and dependencies. Setup reuses them when it runs again after a repository update.
+
+To check setup manually inside an orb, run:
+
+```sh
+.agents/setup
+```
+
+New login shells in this checkout use the pinned toolchain through a repository-scoped entry in `~/.bash_profile`. `.agents/resume` does no work because the project needs no authentication, databases, or reconnect steps. It never installs dependencies.
+
+The package manifest prepares Astro tooling only. There are no application pages yet, so `pnpm dev`, `pnpm build`, and `pnpm preview` are reserved for the future site. Keep the Astro app at the repository root so setup installs its dependencies. Commit changes to both `package.json` and `pnpm-lock.yaml` when adding packages.
+
+Once the app exists, declare its dev server in `.amp/services.yaml` and start it with `amp orb services ensure`. Do not start servers in setup. No dev service is declared yet because there is no app to serve.
+
+The lifecycle files must reach the project's default branch before future orbs use them. No project secrets or extra system packages are required.

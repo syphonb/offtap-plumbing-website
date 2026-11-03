@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+SECONDS=0
+
+node_version="$(cat .node-version)"
+case "$(uname -m)" in
+  x86_64) arch=x64 ;;
+  aarch64) arch=arm64 ;;
+  *) echo "Unsupported orb architecture: $(uname -m)" >&2; exit 1 ;;
+esac
+toolchain_root="$HOME/.local/share/offtap-toolchain"
+node_dist="node-v${node_version}-linux-${arch}"
+node_home="$toolchain_root/$node_dist"
+
+echo "[setup ${SECONDS}s] Preparing Node.js $node_version"
+if [[ ! -x "$node_home/bin/node" ]]; then
+  download_dir="$(mktemp -d)"
+  trap 'rm -rf -- "$download_dir"' EXIT
+  archive="$node_dist.tar.xz"
+  curl --fail --silent --show-error --location --retry 3 \
+    "https://nodejs.org/dist/v$node_version/$archive" -o "$download_dir/$archive"
+  curl --fail --silent --show-error --location --retry 3 \
+    "https://nodejs.org/dist/v$node_version/SHASUMS256.txt" -o "$download_dir/SHASUMS256.txt"
+  (cd "$download_dir" && grep -F "  $archive" SHASUMS256.txt | sha256sum --check -)
+  mkdir -p "$toolchain_root"
+  tar -xJf "$download_dir/$archive" -C "$toolchain_root"
+fi
+ln -sfn "$node_home" "$toolchain_root/current"
+export PATH="$toolchain_root/current/bin:$PATH"
+
+# Amp and supervised services use separate login shells after setup exits.
+profile_marker="# OffTap orb toolchain"
+if ! grep -Fqx "$profile_marker" "$HOME/.bash_profile" 2>/dev/null; then
+  cat >> "$HOME/.bash_profile" <<EOF
+
+$profile_marker
+if [[ "\$PWD" == "$repo_root" || "\$PWD" == "$repo_root/"* ]]; then
+  case "\$PATH" in
+    "$toolchain_root/current/bin"|"$toolchain_root/current/bin":*) ;;
+    *) export PATH="$toolchain_root/current/bin:\$PATH" ;;
+  esac
+fi
+EOF
+fi
+
+package_manager="$(node -p 'require("./package.json").packageManager')"
+echo "[setup ${SECONDS}s] Preparing $package_manager"
+if [[ ! -x "$node_home/bin/pnpm" ]] || \
+   [[ "$("$node_home/bin/pnpm" --version)" != "${package_manager#pnpm@}" ]]; then
+  npm install --global --prefix "$node_home" "$package_manager" --no-audit --no-fund
+fi
+
+echo "[setup ${SECONDS}s] Installing locked dependencies"
+pnpm install --frozen-lockfile --prefer-offline
+ASTRO_TELEMETRY_DISABLED=1 pnpm exec astro --version
+echo "[setup ${SECONDS}s] Ready: Node $(node --version), pnpm $(pnpm --version)"
