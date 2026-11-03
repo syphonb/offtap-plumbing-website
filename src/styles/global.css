@@ -242,8 +242,8 @@ h4 {
   flex: none;
 }
 .brand img {
-  width: 52px;
-  height: 52px;
+  width: 62px;
+  height: 62px;
 }
 .brand b {
   font: 700 19px/1 "Space Grotesk";
@@ -632,19 +632,33 @@ section {
 .aud {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-radius: 32px;
-  overflow: hidden;
-  background: var(--grad);
+  gap: 20px;
 }
 .aud a {
-  padding: 64px 54px;
-  background: rgba(12, 21, 28, 0.88);
-  margin: 1px;
+  --aud-glow: rgba(0, 169, 237, 0.4);
+  position: relative;
+  overflow: hidden;
+  padding: 58px 44px;
+  border: 1px solid var(--line2);
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at 88% 12%,
+      var(--aud-glow),
+      transparent 32%
+    ),
+    var(--panel);
   display: block;
-  transition: background 0.3s;
+  transition:
+    border-color 0.3s,
+    background-color 0.3s;
+}
+.aud a:last-child {
+  --aud-glow: rgba(242, 142, 82, 0.4);
 }
 .aud a:hover {
-  background: rgba(12, 21, 28, 0.6);
+  border-color: rgba(255, 255, 255, 0.24);
+  background-color: #12222c;
 }
 .aud h3 {
   font-size: 40px;
@@ -663,17 +677,12 @@ section {
   font-size: 16px;
 }
 .aud li::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--blue);
-  margin-right: 12px;
-  vertical-align: middle;
+  content: "✓";
+  color: var(--blue);
+  margin-right: 8px;
 }
 .aud a:last-child li::before {
-  background: var(--orange);
+  color: var(--orange);
 }
 .aud .mono {
   color: var(--blue);
@@ -964,8 +973,8 @@ footer {
     height: 68px;
   }
   .brand img {
-    width: 42px;
-    height: 42px;
+    width: 50px;
+    height: 50px;
   }
   .brand b {
     font-size: 16px;
@@ -1035,7 +1044,7 @@ footer {
   .m-copy h3 {
     font-size: 26px;
   }
-  .aud {
+  .aud a {
     border-radius: 24px;
   }
   .aud a {
