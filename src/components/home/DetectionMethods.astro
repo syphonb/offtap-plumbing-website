@@ -1,0 +1,135 @@
+---
+import SectionHeading from "../SectionHeading.astro";
+import MethodIllustration from "./MethodIllustration.astro";
+import { methods } from "../../data/methods";
+---
+
+<section id="methods" class="tone-o" aria-labelledby="methods-title">
+  <div class="wrap">
+    <SectionHeading eyebrow="How we investigate" id="methods-title">
+      <Fragment slot="title"
+        >The right method depends on the pipe, the ground and <span class="g"
+          >the leak.</span
+        ></Fragment
+      >
+      We don't rely on a single tool. Each investigation combines methods chosen for
+      your pipework and site conditions, explained in plain English as we go.
+    </SectionHeading>
+    <div class="methods-ui">
+      <div class="m-tabs" role="tablist" aria-label="Detection methods" hidden>
+        {
+          methods.map((method, index) => (
+            <button
+              class="m-tab"
+              type="button"
+              role="tab"
+              id={`tab-${method.id}`}
+              aria-selected={index === 0 ? "true" : "false"}
+              aria-controls={method.id}
+              tabindex={index === 0 ? 0 : -1}
+            >
+              <>
+                <small>{String(index + 1).padStart(2, "0")}</small>
+                <b>{method.label}</b>
+              </>
+            </button>
+          ))
+        }
+      </div>
+      <div class="method-panels">
+        {
+          methods.map((method, index) => (
+            <div
+              class="m-panel"
+              role="tabpanel"
+              id={method.id}
+              aria-labelledby={`tab-${method.id}`}
+              tabindex="0"
+            >
+              <div class="m-art">
+                <MethodIllustration kind={method.id} />
+              </div>
+              <div class="m-copy">
+                <>
+                  <span class="mono">
+                    Method {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3>{method.title}</h3>
+                  <p>{method.description}</p>
+                  <ul>
+                    {method.uses.map((use) => (
+                      <li>{use}</li>
+                    ))}
+                  </ul>
+                  <p class="note">{method.note}</p>
+                </>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <p class="honest">
+      No single method suits every leak. We'll tell you what we found, how
+      confident we are, and what we recommend next.
+    </p>
+  </div>
+</section>
+<script>
+  const tablist = document.querySelector<HTMLElement>(".m-tabs");
+  const tabs = Array.from(
+    document.querySelectorAll<HTMLButtonElement>(".m-tab"),
+  );
+  const panels = Array.from(document.querySelectorAll<HTMLElement>(".m-panel"));
+  if (tablist) {
+    const activate = (tab: HTMLButtonElement, focus = false) => {
+      const panelId = tab.getAttribute("aria-controls");
+      tabs.forEach((item) => {
+        item.setAttribute("aria-selected", String(item === tab));
+        item.tabIndex = item === tab ? 0 : -1;
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.id !== panelId;
+      });
+      if (focus) {
+        tab.focus({ preventScroll: true });
+        tab.scrollIntoView({
+          block: "nearest",
+          inline: "nearest",
+          behavior: "instant",
+        });
+      }
+    };
+    const verticalLayout = window.matchMedia("(min-width: 1101px)");
+    const updateOrientation = () =>
+      tablist.setAttribute(
+        "aria-orientation",
+        verticalLayout.matches ? "vertical" : "horizontal",
+      );
+    updateOrientation();
+    verticalLayout.addEventListener("change", updateOrientation);
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => activate(tab));
+      tab.addEventListener("keydown", (event) => {
+        const nextKey = verticalLayout.matches ? "ArrowDown" : "ArrowRight";
+        const previousKey = verticalLayout.matches ? "ArrowUp" : "ArrowLeft";
+        let target: number;
+        if (event.key === nextKey) target = (index + 1) % tabs.length;
+        else if (event.key === previousKey)
+          target = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === "Home") target = 0;
+        else if (event.key === "End") target = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        const next = tabs[target];
+        if (next) activate(next, true);
+      });
+    });
+    const initial =
+      tabs.find(
+        (tab) => tab.getAttribute("aria-controls") === location.hash.slice(1),
+      ) ?? tabs[0];
+    if (initial) activate(initial);
+    tablist.hidden = false;
+  }
+</script>

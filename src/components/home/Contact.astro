@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import lion from "../../assets/lion-call.png";
+import Button from "../Button.astro";
+import Glow from "../Glow.astro";
+import { site } from "../../data/site";
+---
+
+<section class="cta tone-b" id="contact" aria-labelledby="contact-title">
+  <Glow />
+  <Image
+    class="cta-lion"
+    src={lion}
+    alt=""
+    widths={[300, 470, 660]}
+    sizes="(max-width: 700px) 300px, (max-width: 1100px) 380px, 470px"
+    format="webp"
+    loading="lazy"
+    decoding="async"
+  />
+  <h2 id="contact-title">
+    Tell us what you're <span class="g">noticing.</span>
+  </h2>
+  <div class="cta-row">
+    <div>
+      <a class="num" href={`tel:${site.telephone}`}>{site.phone}</a>
+      <p class="contact-email">
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
+    </div>
+    <p class="contact-secondary" id="plumbing-gas">
+      {`Also licensed for general plumbing and gas fitting. QBCC ${site.qbcc} · Gas licence ${site.gasLicence}.`}
+    </p>
+    <Button href={`mailto:${site.email}?subject=Leak%20detection%20enquiry`}
+      >Send an enquiry <span aria-hidden="true">→</span></Button
+    >
+  </div>
+</section>

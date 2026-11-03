@@ -1,0 +1,62 @@
+---
+import { site, navigation } from "../data/site";
+---
+
+<header class="site-header tone-b">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label={`${site.name} home`}>
+      <img src="/images/offtap-logo.webp" width="52" height="52" alt="" />
+      <span><b>OFFTAP</b><small>Plumbing &amp; Gas</small></span>
+    </a>
+    <nav id="primary-nav" aria-label="Primary">
+      {navigation.map(({ href, label }) => <a href={href}>{label}</a>)}
+    </nav>
+    <a
+      class="call"
+      href={`tel:${site.telephone}`}
+      aria-label={`Call OffTap on ${site.phone}`}>{site.phone}</a
+    >
+    <button
+      class="menu-btn"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="primary-nav"><span></span></button
+    >
+  </div>
+</header>
+<script>
+  const header = document.querySelector(".site-header");
+  const button = header?.querySelector<HTMLButtonElement>(".menu-btn");
+  const menu = header?.querySelector("nav");
+  if (header && button && menu) {
+    const setOpen = (open: boolean) => {
+      header.classList.toggle("menu-open", open);
+      button.setAttribute("aria-expanded", String(open));
+      button.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    header.classList.add("menu-ready");
+    button.addEventListener("click", () =>
+      setOpen(button.getAttribute("aria-expanded") !== "true"),
+    );
+    menu
+      .querySelectorAll("a")
+      .forEach((link) => link.addEventListener("click", () => setOpen(false)));
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        button.getAttribute("aria-expanded") === "true"
+      ) {
+        setOpen(false);
+        button.focus();
+      }
+    });
+    document.addEventListener("click", (event) => {
+      if (event.target instanceof Node && !header.contains(event.target))
+        setOpen(false);
+    });
+    window
+      .matchMedia("(max-width: 1100px)")
+      .addEventListener("change", () => setOpen(false));
+  }
+</script>

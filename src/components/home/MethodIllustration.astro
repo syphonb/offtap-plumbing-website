@@ -1,0 +1,445 @@
+---
+import type { MethodKind } from "../../data/methods";
+interface Props {
+  kind: MethodKind;
+}
+const { kind } = Astro.props;
+---
+
+<svg viewBox="0 0 420 300" fill="none" aria-hidden="true" focusable="false">
+  {
+    kind === "acoustic" && (
+      <>
+        <>
+          <rect y="150" width="420" height="150" fill="#0f1f2a" />
+          <line x1="0" y1="150" x2="420" y2="150" stroke="#2f6f8c" />
+        </>
+        <path
+          d="M0 240h420"
+          stroke="#2f6f8c"
+          stroke-width="10"
+          stroke-linecap="round"
+        />
+        <circle cx="250" cy="240" r="5" fill="#F28E52" />
+        <g stroke="#00A9ED" stroke-width="1.5" opacity=".9">
+          <>
+            <path d="M230 220a28 28 0 0 1 40 0">
+              <animate
+                attributeName="opacity"
+                values="1;0;1"
+                dur="1.8s"
+                repeatCount="indefinite"
+              />
+            </path>
+            <path d="M218 206a46 46 0 0 1 64 0" opacity=".7">
+              <animate
+                attributeName="opacity"
+                values=".7;0;.7"
+                dur="1.8s"
+                begin=".3s"
+                repeatCount="indefinite"
+              />
+            </path>
+            <path d="M206 192a64 64 0 0 1 88 0" opacity=".45">
+              <animate
+                attributeName="opacity"
+                values=".45;0;.45"
+                dur="1.8s"
+                begin=".6s"
+                repeatCount="indefinite"
+              />
+            </path>
+          </>
+        </g>
+        <>
+          <rect
+            x="236"
+            y="134"
+            width="28"
+            height="16"
+            rx="4"
+            fill="#163646"
+            stroke="#7fd4f7"
+          />
+          <path d="M250 134V80" stroke="#7fd4f7" stroke-width="2" />
+          <path d="M250 80h-30" stroke="#7fd4f7" stroke-width="2" />
+        </>
+        <g transform="translate(80 40)">
+          <>
+            <rect
+              width="110"
+              height="60"
+              rx="8"
+              fill="#0C151C"
+              stroke="#4f7d92"
+            />
+            <path
+              d="M10 30h10l5-14 6 28 6-22 6 16 5-8 6 4h46"
+              stroke="#00A9ED"
+              stroke-width="1.6"
+            />
+          </>
+        </g>
+        <text
+          x="20"
+          y="285"
+          fill="#91a6b1"
+          font-family="Space Grotesk"
+          font-size="11"
+          letter-spacing="1.5"
+        >
+          ESCAPING WATER CREATES SOUND
+        </text>
+      </>
+    )
+  }
+  {
+    kind === "nitrogen" && (
+      <>
+        <path
+          d="M40 200h340"
+          stroke="#2f6f8c"
+          stroke-width="12"
+          stroke-linecap="round"
+        />
+        <>
+          <rect
+            x="40"
+            y="70"
+            width="44"
+            height="120"
+            rx="14"
+            fill="#163646"
+            stroke="#7fd4f7"
+          />
+          <text
+            x="50"
+            y="135"
+            fill="#7fd4f7"
+            font-family="Space Grotesk"
+            font-size="16"
+            font-weight="600"
+          >
+            N₂
+          </text>
+        </>
+        <circle
+          cx="170"
+          cy="130"
+          r="46"
+          fill="#0C151C"
+          stroke="#4f7d92"
+          stroke-width="2"
+        />
+        <path
+          d="M140 150a40 40 0 0 1 60-38"
+          stroke="#1d4459"
+          stroke-width="6"
+        />
+        <line
+          x1="170"
+          y1="130"
+          x2="196"
+          y2="108"
+          stroke="#F28E52"
+          stroke-width="3"
+          stroke-linecap="round"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            values="-50 170 130;0 170 130;-6 170 130"
+            dur="3s"
+            repeatCount="indefinite"
+          />
+        </line>
+        <>
+          <circle cx="170" cy="130" r="5" fill="#F28E52" />
+          <path d="M170 176v24" stroke="#4f7d92" stroke-width="3" />
+        </>
+        <g fill="#7fd4f7">
+          <>
+            <circle cx="230" cy="200" r="2">
+              <animate
+                attributeName="cx"
+                values="100;360"
+                dur="2.4s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <circle cx="230" cy="200" r="2">
+              <animate
+                attributeName="cx"
+                values="100;360"
+                dur="2.4s"
+                begin=".8s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <circle cx="230" cy="200" r="2">
+              <animate
+                attributeName="cx"
+                values="100;360"
+                dur="2.4s"
+                begin="1.6s"
+                repeatCount="indefinite"
+              />
+            </circle>
+          </>
+        </g>
+        <text
+          x="40"
+          y="260"
+          fill="#91a6b1"
+          font-family="Space Grotesk"
+          font-size="11"
+          letter-spacing="1.5"
+        >
+          CONTROLLED PRESSURE · WATCH FOR DROP
+        </text>
+      </>
+    )
+  }
+  {
+    kind === "tracer-gas" && (
+      <>
+        <>
+          <rect y="130" width="420" height="170" fill="#0f1f2a" />
+          <line x1="0" y1="130" x2="420" y2="130" stroke="#2f6f8c" />
+        </>
+        <>
+          <path
+            d="M0 240h420"
+            stroke="#2f6f8c"
+            stroke-width="10"
+            stroke-linecap="round"
+          />
+          <circle cx="270" cy="240" r="5" fill="#F28E52" />
+        </>
+        <g fill="#7fd4f7">
+          <>
+            <circle cx="270" cy="230" r="3">
+              <>
+                <animate
+                  attributeName="cy"
+                  values="232;136"
+                  dur="2.6s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  values="1;0"
+                  dur="2.6s"
+                  repeatCount="indefinite"
+                />
+              </>
+            </circle>
+            <circle cx="276" cy="230" r="2">
+              <>
+                <animate
+                  attributeName="cy"
+                  values="232;136"
+                  dur="2.6s"
+                  begin=".9s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  values="1;0"
+                  dur="2.6s"
+                  begin=".9s"
+                  repeatCount="indefinite"
+                />
+              </>
+            </circle>
+            <circle cx="264" cy="230" r="2.5">
+              <>
+                <animate
+                  attributeName="cy"
+                  values="232;136"
+                  dur="2.6s"
+                  begin="1.7s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  values="1;0"
+                  dur="2.6s"
+                  begin="1.7s"
+                  repeatCount="indefinite"
+                />
+              </>
+            </circle>
+          </>
+        </g>
+        <>
+          <path
+            d="M232 128c0-10 8-16 16-16h44"
+            stroke="#7fd4f7"
+            stroke-width="2"
+          />
+          <rect
+            x="230"
+            y="122"
+            width="16"
+            height="10"
+            rx="3"
+            fill="#163646"
+            stroke="#7fd4f7"
+          />
+        </>
+        <>
+          <rect
+            x="292"
+            y="94"
+            width="70"
+            height="40"
+            rx="6"
+            fill="#0C151C"
+            stroke="#4f7d92"
+          />
+          <rect x="300" y="104" width="44" height="6" rx="3" fill="#1d4459" />
+          <rect x="300" y="104" width="34" height="6" rx="3" fill="#F28E52" />
+          <text
+            x="300"
+            y="126"
+            fill="#7fd4f7"
+            font-family="Space Grotesk"
+            font-size="9"
+          >
+            DETECTED
+          </text>
+        </>
+        <text
+          x="20"
+          y="285"
+          fill="#91a6b1"
+          font-family="Space Grotesk"
+          font-size="11"
+          letter-spacing="1.5"
+        >
+          GAS RISES THROUGH THE GROUND
+        </text>
+      </>
+    )
+  }
+  {
+    kind === "thermal" && (
+      <>
+        <defs>
+          <radialGradient id="heat" cx=".55" cy=".55" r=".5">
+            <>
+              <stop offset="0" stop-color="#F28E52" />
+              <stop offset=".35" stop-color="#ef4123" stop-opacity=".7" />
+              <stop offset=".7" stop-color="#00597e" stop-opacity=".6" />
+              <stop offset="1" stop-color="#0C151C" stop-opacity="0" />
+            </>
+          </radialGradient>
+        </defs>
+        <rect
+          x="60"
+          y="40"
+          width="300"
+          height="200"
+          rx="12"
+          fill="#0C151C"
+          stroke="#4f7d92"
+          stroke-width="2"
+        />
+        <rect x="72" y="52" width="276" height="176" rx="6" fill="#0E2633" />
+        <ellipse cx="220" cy="150" rx="110" ry="70" fill="url(#heat)">
+          <animate
+            attributeName="rx"
+            values="100;114;100"
+            dur="4s"
+            repeatCount="indefinite"
+          />
+        </ellipse>
+        <>
+          <path d="M200 140h40M220 120v40" stroke="#fff" stroke-width="1.5" />
+          <circle cx="220" cy="140" r="12" stroke="#fff" stroke-width="1.5" />
+        </>
+        <text
+          x="84"
+          y="72"
+          fill="#dff3fd"
+          font-family="Space Grotesk"
+          font-size="11"
+        >
+          27.4°C
+        </text>
+        <text
+          x="60"
+          y="270"
+          fill="#91a6b1"
+          font-family="Space Grotesk"
+          font-size="11"
+          letter-spacing="1.5"
+        >
+          SURFACE TEMPERATURE DIFFERENCES
+        </text>
+      </>
+    )
+  }
+  {
+    kind === "locating" && (
+      <>
+        <rect width="420" height="300" rx="14" fill="#0f1f2a" />
+        <path
+          d="M30 230 C120 230 150 120 250 110 S380 70 400 60"
+          stroke="#2f6f8c"
+          stroke-width="8"
+          stroke-linecap="round"
+          opacity=".6"
+        />
+        <path
+          d="M30 230 C120 230 150 120 250 110 S380 70 400 60"
+          stroke="#F28E52"
+          stroke-width="2"
+          stroke-dasharray="8 8"
+        >
+          <animate
+            attributeName="stroke-dashoffset"
+            values="0;-32"
+            dur="1s"
+            repeatCount="indefinite"
+          />
+        </path>
+        <g>
+          <>
+            <animateMotion
+              dur="6s"
+              repeatCount="indefinite"
+              path="M30 230 C120 230 150 120 250 110 S380 70 400 60"
+            />
+            <circle r="16" fill="none" stroke="#00A9ED" stroke-width="1.5" />
+            <circle r="4" fill="#00A9ED" />
+          </>
+        </g>
+        <g fill="#F28E52" font-family="Space Grotesk" font-size="10">
+          <>
+            <text x="96" y="214">
+              ▲
+            </text>
+            <text x="196" y="132">
+              ▲
+            </text>
+            <text x="306" y="96">
+              ▲
+            </text>
+          </>
+        </g>
+        <text
+          x="20"
+          y="285"
+          fill="#91a6b1"
+          font-family="Space Grotesk"
+          font-size="11"
+          letter-spacing="1.5"
+        >
+          TRACE THE LIKELY SERVICE ROUTE
+        </text>
+      </>
+    )
+  }
+</svg>

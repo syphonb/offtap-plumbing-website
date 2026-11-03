@@ -1,0 +1,51 @@
+---
+import SectionHeading from "../SectionHeading.astro";
+const signs = [
+  {
+    glyph: "$↑",
+    title: "Unexpected water bills",
+    text: "Usage has climbed but nothing about how you use water has changed.",
+  },
+  {
+    glyph: "↻",
+    title: "Meter moving, taps off",
+    text: "Everything is turned off, yet the meter keeps ticking over.",
+  },
+  {
+    glyph: "≈",
+    title: "Wet patches",
+    text: "Soft, green or soggy spots in the yard that never dry out.",
+  },
+  {
+    glyph: "?",
+    title: "A leak you can't pinpoint",
+    text: "Damp walls, floors or concrete with no obvious source.",
+  },
+];
+---
+
+<section class="signs tone-b" aria-labelledby="signs-title">
+  <div class="wrap">
+    <SectionHeading eyebrow="Signs of a hidden leak" id="signs-title">
+      <Fragment slot="title">Most leaks don't announce themselves.</Fragment>
+      If any of these sound familiar, it's worth a conversation before anyone starts
+      digging. A short call is usually enough to tell whether an investigation makes
+      sense.
+    </SectionHeading>
+    <div class="sign-grid">
+      {
+        signs.map(({ glyph, title, text }) => (
+          <div class="sign">
+            <>
+              <span class="glyph" aria-hidden="true">
+                {glyph}
+              </span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

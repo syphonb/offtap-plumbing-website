@@ -1,0 +1,14 @@
+---
+interface Props {
+  eyebrow: string;
+  id: string;
+}
+const { eyebrow, id } = Astro.props;
+---
+
+<div class="sec-head">
+  <div>
+    <span class="mono">{eyebrow}</span><h2 id={id}><slot name="title" /></h2>
+  </div>
+  <p><slot /></p>
+</div>

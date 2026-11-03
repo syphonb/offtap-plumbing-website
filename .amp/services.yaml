@@ -1,0 +1,7 @@
+services:
+  web:
+    command: pnpm dev --port "$PORT"
+    health: /
+    portal:
+      title: OffTap Astro homepage
+      description: Readout v2 homepage scaffold. Preview is not approved for search indexing.

@@ -1,0 +1,50 @@
+---
+import SectionHeading from "../SectionHeading.astro";
+const steps = [
+  {
+    title: "Tell us what you're noticing",
+    description: "A short call about the property, the symptoms and access.",
+  },
+  {
+    title: "Site assessment",
+    description: "We review site conditions and the testing options that suit.",
+  },
+  {
+    title: "Specialist investigation",
+    description: "The right methods narrow down the suspected leak location.",
+  },
+  {
+    title: "Findings & next steps",
+    description:
+      "We explain the results and, where possible, mark the area for repair.",
+  },
+];
+---
+
+<section id="process" class="process tone-o" aria-labelledby="process-title">
+  <div class="wrap">
+    <SectionHeading eyebrow="Our process" id="process-title">
+      <Fragment slot="title"
+        >From "something's wrong" to <span class="g">a clear answer.</span
+        ></Fragment
+      >
+      You'll know what we're doing, why we're doing it and what we found, without
+      the jargon.
+    </SectionHeading>
+    <ol class="steps">
+      {
+        steps.map(({ title, description }, index) => (
+          <li class="step">
+            <>
+              <div class="n" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </div>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

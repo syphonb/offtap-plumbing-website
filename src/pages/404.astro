@@ -1,0 +1,19 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Button from "../components/Button.astro";
+---
+
+<PageLayout
+  title="Page not found | OffTap Plumbing & Gas"
+  description="This page could not be found. Return to OffTap's homepage for leak detection services and contact details."
+  noindex
+>
+  <section class="wrap error-page tone-b" aria-labelledby="error-title">
+    <span class="mono">404 · Page not found</span>
+    <h1 id="error-title">This isn't the leak you're looking for.</h1>
+    <p>The page may have moved, or the address may be incorrect.</p>
+    <Button href="/"
+      >Back to the homepage <span aria-hidden="true">→</span></Button
+    >
+  </section>
+</PageLayout>

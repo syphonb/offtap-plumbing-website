@@ -1,0 +1,109 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+import { isIndexable } from "../lib/seo";
+import spaceFont from "@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url";
+import interFont from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown>;
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  noindex = false,
+  structuredData,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const image = new URL("/images/social-card.png", Astro.site);
+const robots =
+  isIndexable && !noindex
+    ? "index, follow, max-image-preview:large"
+    : "noindex, nofollow";
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#0c151c" />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link
+      rel="preload"
+      href={spaceFont}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={interFont}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_AU" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="OffTap Plumbing & Gas — specialist leak detection across the Fraser Coast"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta
+      name="twitter:image:alt"
+      content="OffTap Plumbing & Gas — specialist leak detection across the Fraser Coast"
+    />
+    {
+      structuredData && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(structuredData).replace(/</g, "\\u003c")}
+        />
+      )
+    }
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Header />
+    <main id="main-content" tabindex="-1"><slot /></main>
+    <Footer />
+    <script>
+      const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const updateMotion = () => {
+        document.querySelectorAll("svg").forEach((svg) => {
+          if (preference.matches) {
+            svg.setCurrentTime(0);
+            svg.pauseAnimations();
+          } else {
+            svg.unpauseAnimations();
+          }
+        });
+      };
+      updateMotion();
+      preference.addEventListener("change", updateMotion);
+    </script>
+  </body>
+</html>

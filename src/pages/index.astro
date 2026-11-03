@@ -1,0 +1,74 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Hero from "../components/home/Hero.astro";
+import LeakSigns from "../components/home/LeakSigns.astro";
+import DetectionMethods from "../components/home/DetectionMethods.astro";
+import Audience from "../components/home/Audience.astro";
+import Process from "../components/home/Process.astro";
+import Contact from "../components/home/Contact.astro";
+import { site } from "../data/site";
+import { methods } from "../data/methods";
+
+const absolute = (path: string) => new URL(path, site.url).href;
+const businessId = absolute("/#business");
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Plumber",
+      "@id": businessId,
+      name: site.name,
+      url: absolute("/"),
+      telephone: site.telephone,
+      email: site.email,
+      logo: absolute("/images/offtap-logo.webp"),
+      image: absolute("/images/social-card.png"),
+      areaServed: site.areas.map((name) => ({
+        "@type": "Place",
+        name: `${name}, Queensland, Australia`,
+      })),
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Leak detection methods",
+        itemListElement: methods.map((method) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: method.title,
+            description: method.description,
+            url: absolute(`/#${method.id}`),
+            provider: { "@id": businessId },
+          },
+        })),
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": absolute("/#website"),
+      name: site.name,
+      url: absolute("/"),
+      inLanguage: "en-AU",
+      publisher: { "@id": businessId },
+    },
+    {
+      "@type": "WebPage",
+      "@id": absolute("/#webpage"),
+      url: absolute("/"),
+      name: site.title,
+      description: site.description,
+      inLanguage: "en-AU",
+      isPartOf: { "@id": absolute("/#website") },
+      about: { "@id": businessId },
+    },
+  ],
+};
+---
+
+<PageLayout structuredData={structuredData}>
+  <Hero />
+  <LeakSigns />
+  <DetectionMethods />
+  <Audience />
+  <Process />
+  <Contact />
+</PageLayout>

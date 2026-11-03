@@ -1,0 +1,39 @@
+---
+import Button from "../Button.astro";
+import Glow from "../Glow.astro";
+import HeroScene from "./HeroScene.astro";
+import { site } from "../../data/site";
+---
+
+<section class="hero tone-o" aria-labelledby="hero-title">
+  <Glow />
+  <HeroScene />
+  <div class="wrap">
+    <div class="copy">
+      <div class="mono eyebrow">{site.areas.join(" · ")}</div>
+      <h1 id="hero-title">
+        Specialist leak detection for the leaks you <span class="g"
+          >can't see.</span>
+      </h1>
+      <p class="lead">
+        Hidden water leak? OffTap uses specialist equipment to investigate
+        concealed and underground leaks for homes, businesses and commercial
+        sites, before anyone starts digging.
+      </p>
+      <div class="btns">
+        <Button href="#contact"
+          >Enquire about leak detection <span aria-hidden="true">→</span
+          ></Button
+        >
+        <Button variant="secondary" href={`tel:${site.telephone}`}
+          >Call OffTap</Button
+        >
+      </div>
+      <div class="creds">
+        <span><b>QBCC</b> {site.qbcc}</span><span
+          ><b>Gas licence</b> {site.gasLicence}</span
+        ><span><b>Local</b> &amp; family-owned</span>
+      </div>
+    </div>
+  </div>
+</section>
